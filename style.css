@@ -1,0 +1,78 @@
+@font-face
+{
+	font-family : "circles_names";
+	src : url('fonts/Rye-Regular.ttf');
+}
+@font-face
+{
+	font-family : "btn_prgs";
+	src : url('fonts/Audiowide-Regular.ttf');
+}
+
+body
+{
+	background-image: url(background3.gif);
+	/*background-image: url(background2.gif);*/
+	background-repeat: repeat;
+}
+.card, nav
+{
+	box-shadow: 0px 0px 20px 0px cyan;
+	color: white;
+}
+.card-title
+{
+	margin-top: -10px;
+	font-family: "circles_names";
+}
+.flex-row-reverse
+{
+	margin-top: -40px;
+}
+
+.btn-programmes
+{
+	margin-left: 310px;
+	font-family: "btn_prgs";
+}
+
+nav
+{
+	height:85px;
+}
+
+img
+{
+	width:20rem;
+	margin-top:12px;
+}
+
+/*disord*/
+@keyframes discord {
+	0% {height:70px; width:250px;}
+	 100% {height:500px;width:350px;}
+}
+@keyframes discord-c {
+	0% {height:500px;width:350px;}
+    100% {height:70px; width:250px;}
+}
+.discord {
+	animation-name: discord-c;
+	animation-duration: 0.5s;
+	animation-play-state: pause;
+	float:left;
+    height:70px;
+	width:250px;
+	margin-left: 10px;
+	margin-top: 6px;
+}
+
+.discord:hover {
+	height:500px;
+	width:350px;
+	float:left;
+	animation-name: discord;
+	animation-duration: 0.5s;
+	animation-play-state: pause;
+}
+	
