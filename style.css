@@ -25,7 +25,7 @@ body
 	margin-top: -10px;
 	font-family: "circles_names";
 }
-.flex-row-reverse
+.display-don-btn
 {
 	margin-top: -40px;
 }
@@ -33,6 +33,15 @@ body
 .btn-programmes
 {
 	margin-left: 310px;
+	font-family: "btn_prgs";
+}
+.btn-boutique
+{
+	font-family: "btn_prgs";
+}
+.btn-liens
+{
+	margin-left: 10px;
 	font-family: "btn_prgs";
 }
 
