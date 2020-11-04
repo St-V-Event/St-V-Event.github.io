@@ -164,6 +164,15 @@ Comment : I know it's not the best code to do this, but it works! And that's all
 		</div>
 		</div>
 
+		<div class="col">
+		<div class="card bg-transparent" style="width: 302px; height: 260px; margin-top: 60px;">
+	  <span id="twitch-embed-AGRO"></span>
+	  <div class="card-body">
+	    <h5 class="card-title">AGRO</h5>
+	    <span class="d-flex flex-row-reverse display-don-btn"><a href="#" class="btn btn-success"><img src="coin.svg" style="width:25px; margin-left:-2px; margin-top:-2px;" class="img-fluid icon"></a></span>
+	  </div>
+		</div>
+		</div>
 	</div>
 </div>
 <!--Twitch Card HTML END-->
@@ -288,6 +297,16 @@ Comment : I know it's not the best code to do this, but it works! And that's all
 				width: 300,
 				height: 200,
 				channel: "isti_ulb",
+				parent: ["localhost"],
+				allowfullscreen : false,
+				autoplay : false,
+				muted : true,
+				layout : ["video"]
+			});
+			new Twitch.Embed("twitch-embed-AGRO", {
+				width: 300,
+				height: 200,
+				channel: "agro_ulb",
 				parent: ["localhost"],
 				allowfullscreen : false,
 				autoplay : false,
