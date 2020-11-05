@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 
 const streams = [
@@ -72,14 +72,29 @@ const streams = [
 
 ];
 
-const Stream = ({icon, title, id, channel}) => {
+const Stream = ({showStream, icon, title, id, channel}) => {
   useEffect(() => {
-
+    if (showStream) {
+      new window.Twitch.Embed(id, {
+				width: 300,
+				height: 200,
+				channel: channel,
+				parent: ["localhost"],
+				allowfullscreen : false,
+				autoplay : false,
+				muted : true,
+				layout : ["video"]
+			});
+    }
   })
   return (
     <div className="col-sm-2 col-md-4 col-lg-3 bg-transparent">
       <a target="_blank" href={"https://www.twitch.tv/"+channel}>
-        <img className="card-img-top" src={icon} />
+        { showStream ?
+          <div id={id} />
+        :
+          <img className="card-img-top" src={icon} />
+        }
       </a>
       <div className="card-body">
 
@@ -109,11 +124,18 @@ const Stream = ({icon, title, id, channel}) => {
 }
 
 const Root = () => {
+  let [showStream, setShowStream] = useState(false);
   return (
     <div className="container" style={{padding:"0px 1em"}}>
       <div className="row">
+        <div className="custom-control custom-switch text-light">
+          <input type="checkbox" className="custom-control-input" id="customSwitch1" checked={showStream} onChange={e => setShowStream(e.target.checked)} />
+          <label className="custom-control-label" htmlFor="customSwitch1">Display twitch streams <span>(warning it may cause performance issues)</span></label>
+        </div>
+      </div>
+      <div className="row">
         { streams.map(props => (
-          <Stream {...props} key={props.id} />
+          <Stream {...props} key={props.id} showStream={showStream} />
         ))}
   		</div>
     </div>
