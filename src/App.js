@@ -15,7 +15,7 @@ const App = () => {
   return (
     <Router>
         <Nav/>
-        <div>
+        <div style={{paddingTop:"64px"}}>
           <Switch>
             <Route exact path="/" component={ Root } />
             <Route path="/donate/:id" component={ Donation } />
