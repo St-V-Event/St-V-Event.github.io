@@ -3,91 +3,105 @@ import { Link } from 'react-router-dom';
 
 const streams = [
   {
-    title: "ACE-BSG",
-    id: "twitch-embed-ace-bsg",
-    channel: "ace-bsg"
+    icon: process.env.PUBLIC_URL+"/ace.png",
+    title: "ACE",
+    id: "twitch-embed-ace",
+    channel: "ace-ulb"
   }, {
-    title: "Team Organisateur",
+    icon: process.env.PUBLIC_URL+"/orga.png",
+    title: "Team Orga",
     id: "twitch-embed-orga",
     channel: "team-organisateur"
   }, {
+    icon: process.env.PUBLIC_URL+"/orga.png",
     title: "CI",
     id: "twitch-embed-CI",
     channel: "ci_ulb"
   }, {
+    icon: process.env.PUBLIC_URL+"/orga.png",
     title: "CePha",
     id: "twitch-embed-CEPHA",
     channel: "cepha_ulb"
   }, {
+    icon: process.env.PUBLIC_URL+"/orga.png",
     title: "CGéo",
     id: "twitch-embed-CGEO",
     channel: "cgeo_ulb"
   }, {
-    title: "CPS",
-    id: "twitch-embed-CPS",
-    channel: "cps_ulb"
+    icon: process.env.PUBLIC_URL+"/orga.png",
+    title: "ISEP-CM-CKO-CO",
+    id: "twitch-embed-sante",
+    channel: "polesante_ulb"
   }, {
-    title: "CPSY",
-    id: "twitch-embed-CPSY",
-    channel: "cpsy_ulb"
+    icon: process.env.PUBLIC_URL+"/orga.png",
+    title: "CIG",
+    id: "twitch-embed-CIG",
+    channel: "cig_ulb"
   }, {
-    title: "CELB",
-    id: "twitch-embed-CELB",
+    icon: process.env.PUBLIC_URL+"/orga.png",
+    title: "Régionales",
+    id: "twitch-embed-inter",
+    channel: "inter_ulb"
+  }, {
+    icon: process.env.PUBLIC_URL+"/orga.png",
+    title: "CPL-CdH-CJC-CROM-CHAA-CPSY",
+    id: "twitch-embed-solb1",
     channel: "celb_ulb"
   }, {
-    title: "CdS",
-    id: "twitch-embed-CdS",
-    channel: "cds_ulb"
+    icon: process.env.PUBLIC_URL+"/orga.png",
+    title: "CdS-CP",
+    id: "twitch-embed-Cds-CP",
+    channel: "cp_cds_ulb"
   }, {
+    icon: process.env.PUBLIC_URL+"/orga.png",
     title: "CARé",
-    id: "twitch-embed-CARe",
+    id: "twitch-embed-CARé",
     channel: "care_ulb"
   }, {
-    title: "CD",
-    id: "twitch-embed-CD",
-    channel: "cd_ulb"
+    icon: process.env.PUBLIC_URL+"/orga.png",
+    title: "CD-ISTI",
+    id: "twitch-embed-CD-ISTI",
+    channel: "isti_ulb"
   }, {
-    title: "C$",
-    id: "twitch-embed-CS",
-    channel: "cs_ulb"
+    icon: process.env.PUBLIC_URL+"/orga.png",
+    title: "AGRO",
+    id: "twitch-embed-AGRO",
+    channel: "agro_ulb"
   }
+
 
 ];
 
-const coin_style = {
-  width : "25px",
-  marginLeft : "-2px",
-  marginTop: "-2px"
-};
-
-const card_style = {
-  width: "302px",
-  height: "260px",
-  marginTop: "60px"
-};
-
-const Stream = ({title, id, channel}) => {
+const Stream = ({icon, title, id, channel}) => {
   useEffect(() => {
-    new window.Twitch.Embed(id, {
-      width: 300,
-      height: 200,
-      channel: channel,
-      parent: ["localhost"],
-      allowfullscreen : false,
-      muted : true,
-      autoplay: false,
-      layout : ["video"]
-    });
+
   })
   return (
-    <div className="col-sm-4 bg-transparent" style={card_style}>
-      <span id={id} />
+    <div className="col-sm-2 col-md-4 col-lg-3 bg-transparent">
+      <a target="_blank" href={"https://www.twitch.tv/"+channel}>
+        <img className="card-img-top" src={icon} />
+      </a>
       <div className="card-body">
-        <h5 className="card-title text-light">{title}</h5>
-        <div className="d-flex flex-row-reverse display-don-btn">
-          <Link to={"/donate/"+channel} className="btn btn-warning">
-            <img src={process.env.PUBLIC_URL+"/coin.svg"} style={coin_style} className="img-fluid icon"/>
-          </Link>
+
+        <div className="row text-warning">
+          <div className="col-8"/>
+          <div className="col-4 text-center">
+            100€
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-8">
+            <a target="_blank" href={"https://www.twitch.tv/"+channel}>
+              <span className="card-title text-light text-center">{title}</span>
+            </a>
+          </div>
+          <div className="col-4 text-center">
+            <Link to={"/donate/"+channel}>
+              <button className="btn btn-warning">
+                <img src={process.env.PUBLIC_URL+"/coin.svg"} className="cicon icon"/>
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
@@ -96,11 +110,13 @@ const Stream = ({title, id, channel}) => {
 
 const Root = () => {
   return (
-    <div className="row">
-      { streams.map(props => (
-        <Stream {...props} key={props.id} />
-      ))}
-		</div>
+    <div className="container" style={{padding:"0px 1em"}}>
+      <div className="row">
+        { streams.map(props => (
+          <Stream {...props} key={props.id} />
+        ))}
+  		</div>
+    </div>
   );
 }
 
