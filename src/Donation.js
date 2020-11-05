@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 
 const PayPalButton = window.paypal.Buttons.driver("react", { React, ReactDOM });
 
-const donation_preset = [
+const donationPreset = [
   {
     label: "2.00€",
     value: 2
@@ -37,15 +37,15 @@ const Donation = () => {
     })
   }
 
-  let fixed_fees_width = {
+  let fixedFeesWidth = {
     width: ""+(0.35/amount)*100+"%"
   };
 
-  let variable_fees_width = {
+  let variableFeesWidth = {
     width: ""+3.4+"%"
   };
 
-  let donation_width = {
+  let donationWidth = {
     width: ""+(100-((0.35/amount)*100)-3.4)+"%"
   }
 
@@ -60,9 +60,9 @@ const Donation = () => {
       <div className="form-group">
         <div className="col">
           <div className="progress">
-            <div className="progress-bar bg-warning" role="progressbar" style={variable_fees_width}>{""+(amount*0.034).toFixed(3)+"€"}</div>
-            <div className="progress-bar bg-danger" role="progressbar" style={fixed_fees_width}>{""+0.35+"€"}</div>
-            <div className="progress-bar" role="progressbar" style={donation_width}>{""+(0.966*amount-0.35).toFixed(3)+"€"}</div>
+            <div className="progress-bar bg-warning" role="progressbar" style={variableFeesWidth}>{""+(amount*0.034).toFixed(3)+"€"}</div>
+            <div className="progress-bar bg-danger" role="progressbar" style={fixedFeesWidth}>{""+0.35+"€"}</div>
+            <div className="progress-bar" role="progressbar" style={donationWidth}>{""+(0.966*amount-0.35).toFixed(3)+"€"}</div>
           </div>
         </div>
       </div>
@@ -72,7 +72,7 @@ const Donation = () => {
             Donation pool : {id}
           </div>
           <div className="form-group" style={{textAlign: "justify"}}>
-            { donation_preset.map(({label, value}) => (
+            { donationPreset.map(({label, value}) => (
               <span key={value}>
                 <button type="button"
                 className="btn btn-lg btn-warning"
