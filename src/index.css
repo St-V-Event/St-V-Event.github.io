@@ -14,11 +14,11 @@ code {
 
 @font-face {
 	font-family : "circles_names";
-	src : local('Rye'), url(./fonts/Rye-Regular.ttf);
+	src : local('Rye'), url(./assets/fonts/Rye-Regular.ttf);
 }
 @font-face {
 	font-family : "btn_prgs";
-	src : local('Audiowide'), url(./fonts/Audiowide-Regular.ttf);
+	src : local('Audiowide'), url(./assets/fonts/Audiowide-Regular.ttf);
 }
 
 html {
@@ -26,7 +26,7 @@ html {
 }
 
 body {
-	background-image: url("background.gif");
+	background-image: url("./assets/background.gif");
 	background-repeat: repeat;
 }
 
@@ -73,4 +73,12 @@ a:hover {
 	animation-name: discord;
 	animation-duration: 0.5s;
 	animation-play-state: pause;
+}
+
+.banner {
+  min-width: 100vw;
+  width: auto;
+  height: 400px;
+  background: url('./assets/banner.jpg') no-repeat center center;
+  background-size: cover;
 }
