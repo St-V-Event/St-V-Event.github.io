@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link } from 'react-router-dom';
 
 const streams = [
@@ -72,7 +72,7 @@ const streams = [
 
 ];
 
-const Stream = ({showStream, icon, title, id, channel}) => {
+const Stream = ({showStream, icon, title, id, channel, donations}) => {
   useEffect(() => {
     if (showStream) {
       new window.Twitch.Embed(id, {
@@ -88,7 +88,7 @@ const Stream = ({showStream, icon, title, id, channel}) => {
     }
   })
   return (
-    <div className="col-sm-2 col-md-4 col-lg-3 bg-transparent">
+    <div className="col-sm-6 col-md-4 col-lg-3 bg-transparent">
       <a target="_blank" href={"https://www.twitch.tv/"+channel}>
         { showStream ?
           <div id={id} />
@@ -101,7 +101,7 @@ const Stream = ({showStream, icon, title, id, channel}) => {
         <div className="row text-warning">
           <div className="col-8"/>
           <div className="col-4 text-center">
-            100€
+            {donations.toFixed(2)}€
           </div>
         </div>
         <div className="row">
@@ -125,6 +125,37 @@ const Stream = ({showStream, icon, title, id, channel}) => {
 
 const Root = () => {
   let [showStream, setShowStream] = useState(false);
+  let socket = useRef(null);
+  let [donations, setDonations] = useState({});
+  useEffect(() => {
+    socket.current = window.io("https://stvevent.francoisdonnay.be/donation", {
+      path:'/api/socket.io',
+      transports : ['websocket']
+    });
+    socket.current.on('donations', res => {
+      let curr_donations = res.reduce((acc, {pool, total}) => {
+        acc[pool] = total
+        return acc
+      }, {})
+      setDonations(curr_donations)
+    })
+  }, [])
+
+  useEffect(() => {
+    socket.current.on('donation', ({pool, amount}) => {
+      console.log(pool)
+      console.log(amount)
+      setDonations({
+        ...donations,
+        [pool]: donations[pool]+amount
+      })
+    })
+  }, [donations])
+
+  const getPoolDonation = pool => {
+    return donations.hasOwnProperty(pool) ? donations[pool] : 0
+  }
+
   return (
     <div className="container" style={{padding:"0px 1em"}}>
       <div className="row">
@@ -135,7 +166,7 @@ const Root = () => {
       </div>
       <div className="row">
         { streams.map(props => (
-          <Stream {...props} key={props.id} showStream={showStream} />
+          <Stream {...props} key={props.id} showStream={showStream} donations={getPoolDonation(props.channel)} />
         ))}
   		</div>
     </div>

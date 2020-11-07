@@ -28,13 +28,24 @@ const Donation = () => {
 
   let createOrder = (data, actions) => {
     // This function sets up the details of the transaction, including the amount and line item details.
-    return actions.order.create({
+    let order = actions.order.create({
       purchase_units: [{
         amount: {
           value: amount.toString()
         }
       }]
     })
+    order.then(orderId => {
+      fetch(process.env.REACT_APP_API_URL+"/donate/"+id+"/"+orderId, {
+        method: "GET",
+        mode: "cors"
+      }).then(res => {
+
+      }).catch(err => {
+        console.log(err)
+      })
+    })
+    return order
   }
 
   let fixedFeesWidth = {
