@@ -106,7 +106,7 @@ const Stream = ({showStream, icon, title, id, channel, donations}) => {
           </div>
         </div>
         <div className="row">
-          <div className="col-8">
+          <div className="col-8 text-nowrap">
             <a target="_blank" href={"https://www.twitch.tv/"+channel}>
               <span className="card-title text-light text-center">{title}</span>
             </a>
@@ -142,7 +142,7 @@ const Root = () => {
             <label className="custom-control-label" htmlFor="customSwitch1">Display twitch streams <span>(warning it may cause performance issues)</span></label>
           </div>
         </div>
-        <div className="row">
+        <div className="row align-items-end">
           { streams.map(props => (
             <Stream {...props} key={props.id} showStream={showStream} donations={getPoolDonation(props.channel)} />
           ))}
