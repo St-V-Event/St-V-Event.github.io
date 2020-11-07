@@ -108,7 +108,7 @@ const Stream = ({showStream, icon, title, id, channel, donations}) => {
         <div className="row">
           <div className="col-8 text-nowrap">
             <a target="_blank" href={"https://www.twitch.tv/"+channel}>
-              <span className="card-title text-light text-center">{title}</span>
+              <span className="card-title text-light">{title}</span>
             </a>
           </div>
           <div className="col-4 text-center">

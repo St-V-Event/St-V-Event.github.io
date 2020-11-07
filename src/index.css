@@ -84,6 +84,6 @@ a:hover {
 }
 
 .text-nowrap {
-  overflow: hidden;
+  overflow: clip;
   text-overflow: clip;
 }
