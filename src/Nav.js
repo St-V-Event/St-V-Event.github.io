@@ -1,7 +1,10 @@
 import logo from './logo.svg';
 import { Link } from 'react-router-dom';
+import useDonations from './DonationContext';
 
 const Nav = () => {
+  let donations = useDonations();
+  const totalDonations = () => Object.values(donations).reduce((acc,val) => acc + val, 0);
   return (
     <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,9 +31,14 @@ const Nav = () => {
         </ul>
         <ul className="navbar-nav navbar-right">
           <li className="nav-item">
-            <Link to="/donate/any" className="nav-link btn text-dark btn-warning float-right">
+            <Link to="/donate/any" className=" btn text-dark btn-warning">
               Donate!
             </Link>
+          </li>
+          <li className="nav-item">
+            <span className="nav-link text-warning text-center">
+              Total {totalDonations().toFixed(2)}€
+            </span>
           </li>
         </ul>
 

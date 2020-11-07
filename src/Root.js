@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { Link } from 'react-router-dom';
+import useDonations from './DonationContext';
 
 const streams = [
   {
@@ -125,32 +126,7 @@ const Stream = ({showStream, icon, title, id, channel, donations}) => {
 
 const Root = () => {
   let [showStream, setShowStream] = useState(false);
-  let socket = useRef(null);
-  let [donations, setDonations] = useState({});
-  useEffect(() => {
-    socket.current = window.io("https://stvevent.francoisdonnay.be/donation", {
-      path:'/api/socket.io',
-      transports : ['websocket']
-    });
-    socket.current.on('donations', res => {
-      let curr_donations = res.reduce((acc, {pool, total}) => {
-        acc[pool] = total
-        return acc
-      }, {})
-      setDonations(curr_donations)
-    })
-  }, [])
-
-  useEffect(() => {
-    socket.current.on('donation', ({pool, amount}) => {
-      console.log(pool)
-      console.log(amount)
-      setDonations({
-        ...donations,
-        [pool]: donations[pool]+amount
-      })
-    })
-  }, [donations])
+  let donations = useDonations();
 
   const getPoolDonation = pool => {
     return donations.hasOwnProperty(pool) ? donations[pool] : 0

@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { DonationProvider } from './DonationContext';
 import './App.css';
 import Nav from './Nav';
 import Root from './Root';
@@ -14,17 +15,19 @@ import {
 
 const App = () => {
   return (
-    <Router>
-        <Nav/>
-        <div style={{paddingTop:"64px"}}>
-          <Switch>
-            <Route exact path="/" component={ Root } />
-            <Route path="/donate/:id" component={ Donation } />
-            <Route path="/association" component={ Association } />
-          </Switch>
-        </div>
-        <Footer/>
-    </Router>
+    <DonationProvider>
+      <Router>
+          <Nav/>
+          <div style={{paddingTop:"64px"}}>
+            <Switch>
+              <Route exact path="/" component={ Root } />
+              <Route path="/donate/:id" component={ Donation } />
+              <Route path="/association" component={ Association } />
+            </Switch>
+          </div>
+          <Footer/>
+      </Router>
+    </DonationProvider>
   );
 }
 
