@@ -89,7 +89,8 @@ $theme-colors: (
   dark: darken(#222831, 5%),
   light: #ececec,
   primary: #ffc439,
-  danger: #4ca89c
+  danger: #4ca89c,
+  secondary: darken(#ececec, 30%)
 );
 
 body {

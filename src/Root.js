@@ -72,9 +72,11 @@ const Root = () => {
       <div className="text-center banner" />
       <div className="container" style={{padding:"0px 1em"}}>
         <div className="row">
-          <div className="custom-control custom-switch text-light">
+          <div className="custom-control custom-switch text-secondary">
             <input type="checkbox" className="custom-control-input" id="customSwitch1" checked={showStream} onChange={e => setShowStream(e.target.checked)} />
-            <label className="custom-control-label" htmlFor="customSwitch1">Display twitch streams <span>(warning it may cause performance issues)</span></label>
+            <label className="custom-control-label" htmlFor="customSwitch1">
+              Display twitch streams <span>(warning it may cause performance issues)</span>
+            </label>
           </div>
         </div>
         <div className="row align-items-end">
