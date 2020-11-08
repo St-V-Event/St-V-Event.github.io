@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { useParams } from "react-router-dom";
+import config from './config';
 
 const PayPalButton = window.paypal.Buttons.driver("react", { React, ReactDOM });
 
@@ -11,9 +12,11 @@ const Donation = () => {
   let [ amount, setAmount ] = useState(1.00);
   let [ pseudo, setPseudo ] = useState("");
   let [ message, setMessage ] = useState("");
+  let [ pool, setPool ] = useState(id);
   let onAmountChange = e => setAmount(e.target.value);
   let onPseudoChange = e => setPseudo(e.target.value);
   let onMessageChange = e => setMessage(e.target.value);
+  let onPoolChange = e => setPool(e.target.value);
   let updateAmount = amount => e => setAmount(amount);
 
   let createOrder = (data, actions) => {
@@ -26,7 +29,7 @@ const Donation = () => {
       }]
     })
     order.then(orderId => {
-      fetch(process.env.REACT_APP_API_URL+"/donate/"+id+"/"+orderId, {
+      fetch(process.env.REACT_APP_API_URL+"/donate/"+pool+"/"+orderId, {
         method: "POST",
         mode: "cors",
         headers: {
@@ -75,7 +78,20 @@ const Donation = () => {
       <div className="form-row">
         <div className="col">
           <div className="form-group">
-            Donation pool : {id}
+            <div className="input-group">
+              <div className="input-group-prepend">
+                <span className="input-group-text">
+                  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-people-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
+                  </svg>
+                </span>
+              </div>
+              <select className="form-control" placeholder="Donation pool" value={pool} onChange={onPoolChange}>
+                { config.streams.map(({channel, title}) => (
+                  <option key={channel} value={channel}>{title}</option>
+                ))}
+              </select>
+            </div>
           </div>
           <div className="form-group" style={{textAlign: "justify"}}>
             { donationPreset.map(value => (
@@ -90,7 +106,7 @@ const Donation = () => {
           <div className="form-group">
             <div className="input-group">
               <div className="input-group-prepend">
-                <span className="input-group-text">Custom:</span>
+                <span className="input-group-text">Custom amount:</span>
               </div>
               <input
                 className="form-control"
@@ -130,7 +146,7 @@ const Donation = () => {
                   </svg>
                 </span>
               </div>
-              <input
+              <textarea
                 className="form-control"
                 value={message}
                 type="text"
