@@ -24,7 +24,7 @@ const Stream = ({showStream, icon, title, id, channel, donations}) => {
     $("[data-toggle='tooltip']").tooltip()
   })
   return (
-    <div className="col-sm-6 col-md-4 col-lg-3 bg-transparent">
+    <div className="col-sm-6 col-md-4 col-lg-3">
       <a target="_blank" href={"https://www.twitch.tv/"+channel} data-toggle="tooltip" data-placement="top" data-html="true" title="Watch on twitch">
         { showStream ?
           <div id={id} />

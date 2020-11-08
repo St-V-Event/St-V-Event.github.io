@@ -81,15 +81,15 @@ const Donation = () => {
       <h2>Make a donation</h2>
       <div className="form-group">
         <div>
-          Paypal payments include <span className="text-warning">variable fees (3.4%)</span>. Due to <span className="text-danger">fixed paypal fees (0.35€)</span>, prefer one single <span className="text-primary">large donation</span> rather than multiple small ones.
+          Paypal payments include <span className="text-primary">variable fees (3.4%)</span>. Due to <span className="text-danger">fixed paypal fees (0.35€)</span>, prefer one single <span className="text-warning">large donation</span> rather than multiple small ones.
         </div>
       </div>
       <div className="form-group">
         <div className="col">
           <div className="progress">
-            <div className="progress-bar bg-warning text-dark" role="progressbar" style={variableFeesWidth}>{""+(amount*0.034).toFixed(3)+"€"}</div>
-            <div className="progress-bar bg-danger" role="progressbar" style={fixedFeesWidth}>{""+0.35+"€"}</div>
-            <div className="progress-bar" role="progressbar" style={donationWidth}>{""+(0.966*amount-0.35).toFixed(3)+"€"}</div>
+            <div className="progress-bar text-dark font-weight-bold" role="progressbar" style={variableFeesWidth}>{""+(amount*0.034).toFixed(3)+"€"}</div>
+            <div className="progress-bar bg-danger text-dark font-weight-bold" role="progressbar" style={fixedFeesWidth}>{""+0.35+"€"}</div>
+            <div className="progress-bar bg-warning text-dark font-weight-bold" role="progressbar" style={donationWidth}>{""+(0.966*amount-0.35).toFixed(3)+"€"}</div>
           </div>
         </div>
       </div>

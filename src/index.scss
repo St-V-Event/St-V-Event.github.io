@@ -25,11 +25,6 @@ html {
   overflow-x: hidden;
 }
 
-body {
-	background-image: url("./assets/background.gif");
-	background-repeat: repeat;
-}
-
 .card-title {
 	font-family: "circles_names";
   margin: 0;
@@ -87,3 +82,18 @@ a:hover {
   overflow: clip;
   text-overflow: clip;
 }
+
+// blue peach
+$theme-colors: (
+  warning: darken(#f2a365, 4%),
+  dark: darken(#222831, 5%),
+  light: #ececec,
+  primary: #ffc439,
+  danger: #4ca89c
+);
+
+body {
+	background-color:  darken(#30475e, 5%) !important;
+}
+
+@import '~bootstrap/scss/bootstrap.scss';
