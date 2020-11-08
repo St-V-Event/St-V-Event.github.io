@@ -4,26 +4,16 @@ import { useParams } from "react-router-dom";
 
 const PayPalButton = window.paypal.Buttons.driver("react", { React, ReactDOM });
 
-const donationPreset = [
-  {
-    label: "2.00€",
-    value: 2
-  }, {
-    label: "5.00€",
-    value: 5
-  }, {
-    label: "10.00€",
-    value: 10
-  }, {
-    label: "20.00€",
-    value: 20
-  }
-];
+const donationPreset = [ 2, 5, 10, 20];
 
 const Donation = () => {
   let { id } = useParams();
   let [ amount, setAmount ] = useState(1.00);
-  let onChange = e => setAmount(e.target.value);
+  let [ pseudo, setPseudo ] = useState("");
+  let [ message, setMessage ] = useState("");
+  let onAmountChange = e => setAmount(e.target.value);
+  let onPseudoChange = e => setPseudo(e.target.value);
+  let onMessageChange = e => setMessage(e.target.value);
   let updateAmount = amount => e => setAmount(amount);
 
   let createOrder = (data, actions) => {
@@ -37,8 +27,13 @@ const Donation = () => {
     })
     order.then(orderId => {
       fetch(process.env.REACT_APP_API_URL+"/donate/"+id+"/"+orderId, {
-        method: "GET",
-        mode: "cors"
+        method: "POST",
+        mode: "cors",
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({pseudo: pseudo, message: message})
       }).then(res => {
 
       }).catch(err => {
@@ -83,28 +78,64 @@ const Donation = () => {
             Donation pool : {id}
           </div>
           <div className="form-group" style={{textAlign: "justify"}}>
-            { donationPreset.map(({label, value}) => (
+            { donationPreset.map(value => (
               <span key={value}>
                 <button type="button"
                 className="btn btn-lg btn-warning"
-                onClick={updateAmount(value)}>{label}</button>
+                onClick={updateAmount(value)}>{value.toFixed(2)}€</button>
                 {"  "}
               </span>
             ))}
           </div>
-          <div className="input-group">
-            <div className="input-group-prepend">
-              <span className="input-group-text">Custom:</span>
+          <div className="form-group">
+            <div className="input-group">
+              <div className="input-group-prepend">
+                <span className="input-group-text">Custom:</span>
+              </div>
+              <input
+                className="form-control"
+                value={amount}
+                type="number"
+                min="1.00"
+                step="0.25"
+                onChange={onAmountChange} />
+              <div className="input-group-append">
+                <span className="input-group-text">€</span>
+              </div>
             </div>
-            <input
-              className="form-control"
-              value={amount}
-              type="number"
-              min="1.00"
-              step="0.25"
-              onChange={onChange} />
-            <div className="input-group-append">
-              <span className="input-group-text">€</span>
+          </div>
+          <div className="form-group">
+            <div className="input-group">
+              <div className="input-group-prepend">
+                <span className="input-group-text">
+                  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                  </svg>
+                </span>
+              </div>
+              <input
+                className="form-control"
+                value={pseudo}
+                type="text"
+                placeholder="Pseudo (optional)"
+                onChange={onPseudoChange} />
+            </div>
+          </div>
+          <div className="form-group">
+            <div className="input-group">
+              <div className="input-group-prepend">
+                <span className="input-group-text">
+                  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chat-square-text-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.5a1 1 0 0 0-.8.4l-1.9 2.533a1 1 0 0 1-1.6 0L5.3 12.4a1 1 0 0 0-.8-.4H2a2 2 0 0 1-2-2V2zm3.5 1a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5z"/>
+                  </svg>
+                </span>
+              </div>
+              <input
+                className="form-control"
+                value={message}
+                type="text"
+                placeholder="Message (optional)"
+                onChange={onMessageChange} />
             </div>
           </div>
         </div>
