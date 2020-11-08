@@ -31,7 +31,7 @@ const Nav = () => {
         </ul>
         <ul className="navbar-nav navbar-right">
           <li className="nav-item">
-            <Link to="/donate/team-organisateur" className=" btn text-dark btn-warning">
+            <Link to="/donate/team-organisateur" className="btn text-dark btn-warning font-weight-bold">
               Donate!
             </Link>
           </li>
