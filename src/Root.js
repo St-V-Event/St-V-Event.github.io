@@ -39,7 +39,7 @@ const streams = [
     id: "twitch-embed-CIG",
     channel: "cig_ulb"
   }, {
-    icon: process.env.PUBLIC_URL+"/logos/orga.png",
+    icon: process.env.PUBLIC_URL+"/logos/regio.png",
     title: "Régionales",
     id: "twitch-embed-inter",
     channel: "inter_ulb"
