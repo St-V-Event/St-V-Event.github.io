@@ -1,8 +1,10 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { useParams, useHistory } from "react-router-dom";
 import config from './config';
 import Modal from './Modal';
+import $ from 'jquery';
+import bootstrap from 'bootstrap';
 
 const PayPalButton = window.paypal.Buttons.driver("react", { React, ReactDOM });
 
@@ -69,6 +71,10 @@ const Donation = () => {
     history.push('/');
   }
 
+  useEffect(() => {
+    $("[data-toggle='tooltip']").tooltip()
+  })
+
   return (
     <div className="container text-light">
       <Modal ref={modal} onSuccess={onSuccess} />
@@ -81,15 +87,15 @@ const Donation = () => {
       <div className="form-group">
         <div className="col">
           <div className="progress">
-            <div className="progress-bar bg-warning" role="progressbar" style={variableFeesWidth}>{""+(amount*0.034).toFixed(3)+"€"}</div>
+            <div className="progress-bar bg-warning text-dark" role="progressbar" style={variableFeesWidth}>{""+(amount*0.034).toFixed(3)+"€"}</div>
             <div className="progress-bar bg-danger" role="progressbar" style={fixedFeesWidth}>{""+0.35+"€"}</div>
             <div className="progress-bar" role="progressbar" style={donationWidth}>{""+(0.966*amount-0.35).toFixed(3)+"€"}</div>
           </div>
         </div>
       </div>
       <div className="form-row">
-        <div className="col">
-          <div className="form-group">
+        <div className="col-lg-7 col-md col-sm">
+          <div className="form-group" data-toggle="tooltip" data-placement="left" data-html="true" title="Choose a pool </br>of donators">
             <div className="input-group">
               <div className="input-group-prepend">
                 <span className="input-group-text">
@@ -115,7 +121,7 @@ const Donation = () => {
               </span>
             ))}
           </div>
-          <div className="form-group">
+          <div className="form-group" data-toggle="tooltip" data-placement="left" data-html="true" title="Mind the fees">
             <div className="input-group">
               <div className="input-group-prepend">
                 <span className="input-group-text">Custom amount:</span>
@@ -132,7 +138,7 @@ const Donation = () => {
               </div>
             </div>
           </div>
-          <div className="form-group">
+          <div className="form-group" data-toggle="tooltip" data-placement="left" data-html="true" title="To appear live <br/>on the stream">
             <div className="input-group">
               <div className="input-group-prepend">
                 <span className="input-group-text">
@@ -149,7 +155,7 @@ const Donation = () => {
                 onChange={onPseudoChange} />
             </div>
           </div>
-          <div className="form-group">
+          <div className="form-group" data-toggle="tooltip" data-placement="left" data-html="true" title="To appear live <br/>on the stream">
             <div className="input-group">
               <div className="input-group-prepend">
                 <span className="input-group-text">
@@ -167,7 +173,7 @@ const Donation = () => {
             </div>
           </div>
         </div>
-        <div className="col">
+        <div className="col-lg-5 col-md col-sm">
           <PayPalButton createOrder={createOrder} onApprove={onApprove} />
         </div>
       </div>
