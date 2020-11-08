@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import ReactDOM from "react-dom";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import config from './config';
+import Modal from './Modal';
 
 const PayPalButton = window.paypal.Buttons.driver("react", { React, ReactDOM });
 
@@ -9,10 +10,12 @@ const donationPreset = [ 2, 5, 10, 20];
 
 const Donation = () => {
   let { id } = useParams();
+  let history = useHistory();
   let [ amount, setAmount ] = useState(1.00);
   let [ pseudo, setPseudo ] = useState("");
   let [ message, setMessage ] = useState("");
   let [ pool, setPool ] = useState(id);
+  let modal = useRef(null);
   let onAmountChange = e => setAmount(e.target.value);
   let onPseudoChange = e => setPseudo(e.target.value);
   let onMessageChange = e => setMessage(e.target.value);
@@ -46,6 +49,10 @@ const Donation = () => {
     return order
   }
 
+  let onApprove = (data, actions) => {
+    modal.current.show();
+  }
+
   let fixedFeesWidth = {
     width: ""+(0.35/amount)*100+"%"
   };
@@ -58,8 +65,13 @@ const Donation = () => {
     width: ""+(100-((0.35/amount)*100)-3.4)+"%"
   }
 
+  const onSuccess = e => {
+    history.push('/');
+  }
+
   return (
     <div className="container text-light">
+      <Modal ref={modal} onSuccess={onSuccess} />
       <h2>Make a donation</h2>
       <div className="form-group">
         <div>
@@ -156,7 +168,7 @@ const Donation = () => {
           </div>
         </div>
         <div className="col">
-          <PayPalButton createOrder={createOrder} />
+          <PayPalButton createOrder={createOrder} onApprove={onApprove} />
         </div>
       </div>
 		</div>
