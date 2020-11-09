@@ -20,7 +20,7 @@ class Modal extends React.Component {
   render() {
     const { onSuccess } = this.props;
     return (
-      <div className="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" ref={modal=> this.modal = modal}>
+      <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" ref={modal=> this.modal = modal}>
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-header text-dark">
@@ -30,8 +30,8 @@ class Modal extends React.Component {
               </button>
             </div>
             <div className="modal-body text-dark">
-              Thank you for your support <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-heart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+              Thank you for your support <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-heart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fillRule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
               </svg><br/>
               Please be patient, the payment may take a few minutes to appear.
             </div>
