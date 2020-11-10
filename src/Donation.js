@@ -67,6 +67,7 @@ const Donation = () => {
     history.push('/');
   }
 
+  $("[data-toggle='tooltip']").tooltip('hide')
   useEffect(() => {
     $("[data-toggle='tooltip']").tooltip()
   })
