@@ -78,6 +78,10 @@ a:hover {
   background-size: cover;
 }
 
+a:hover {
+  text-decoration: none !important;
+}
+
 .text-nowrap {
   overflow: clip;
   text-overflow: clip;

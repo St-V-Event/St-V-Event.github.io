@@ -25,34 +25,30 @@ const Donation = () => {
   let updateAmount = amount => e => setAmount(amount);
 
   let createOrder = (data, actions) => {
-    // This function sets up the details of the transaction, including the amount and line item details.
-    let order = actions.order.create({
+    return actions.order.create({
       purchase_units: [{
         amount: {
           value: amount.toString()
         }
       }]
     })
-    order.then(orderId => {
-      fetch(process.env.REACT_APP_API_URL+"/donate/"+pool+"/"+orderId, {
-        method: "POST",
-        mode: "cors",
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({pseudo: pseudo, message: message})
-      }).then(res => {
-
-      }).catch(err => {
-        console.log(err)
-      })
-    })
-    return order
   }
 
   let onApprove = (data, actions) => {
-    modal.current.show();
+    fetch(process.env.REACT_APP_API_URL+"/api/donate/"+pool+"/"+data.orderID, {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({pseudo: pseudo, message: message})
+    }).catch(err => {
+      console.log(err)
+    })
+    return actions.order.capture().then(details => {
+      modal.current.show();
+    })
   }
 
   let fixedFeesWidth = {

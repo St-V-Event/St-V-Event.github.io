@@ -7,7 +7,7 @@ export const DonationProvider = props => {
   const [donations, setDonations] = useState({});
 
   useEffect(() => {
-    socket.current = window.io("https://stvevent.francoisdonnay.be/donation", {
+    socket.current = window.io(process.env.REACT_APP_API_URL+"/donation", {
       path:'/api/socket.io',
       transports : ['websocket']
     });
@@ -22,11 +22,9 @@ export const DonationProvider = props => {
 
   useEffect(() => {
     socket.current.on('donation', ({pool, amount}) => {
-      console.log(pool)
-      console.log(amount)
       setDonations({
         ...donations,
-        [pool]: donations[pool]+amount
+        [pool]: donations[pool]+parseFloat(amount)
       })
     })
   }, [donations])
