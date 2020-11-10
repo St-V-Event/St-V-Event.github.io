@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import useDonations from './DonationContext';
 
 const Nav = () => {
-  let donations = useDonations();
+  let {donations} = useDonations();
   const totalDonations = () => Object.values(donations).reduce((acc,val) => acc + val, 0);
   return (
     <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">

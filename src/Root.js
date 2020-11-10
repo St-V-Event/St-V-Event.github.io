@@ -61,7 +61,7 @@ const Stream = ({showStream, icon, title, id, channel, donations}) => {
 
 const Root = () => {
   let [showStream, setShowStream] = useState(false);
-  let donations = useDonations();
+  let { donations } = useDonations();
 
   const getPoolDonation = pool => {
     return donations.hasOwnProperty(pool) ? donations[pool] : 0

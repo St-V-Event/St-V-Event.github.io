@@ -5,6 +5,7 @@ const DonationContext = createContext({});
 export const DonationProvider = props => {
   const socket = useRef(null);
   const [donations, setDonations] = useState({});
+  const [lastDonation, setLastDonation] = useState({});
 
   useEffect(() => {
     socket.current = window.io(process.env.REACT_APP_API_URL+"/donation", {
@@ -22,6 +23,7 @@ export const DonationProvider = props => {
 
   useEffect(() => {
     socket.current.on('donation', ({pool, amount}) => {
+      setLastDonation({pool, amount})
       setDonations({
         ...donations,
         [pool]: donations[pool]+parseFloat(amount)
@@ -30,7 +32,7 @@ export const DonationProvider = props => {
   }, [donations])
 
 return(
-    <DonationContext.Provider value={donations}>
+    <DonationContext.Provider value={{donations, lastDonation}}>
       { props.children }
     </DonationContext.Provider>
   )
