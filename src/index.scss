@@ -13,12 +13,13 @@ code {
 }
 
 @font-face {
-	font-family : "circles_names";
-	src : local('Rye'), url(./assets/fonts/Rye-Regular.ttf);
+	font-family : "pool_names";
+	src : local('OstrichSans'), url(./assets/fonts/aileron.heavy.otf);
 }
+
 @font-face {
-	font-family : "btn_prgs";
-	src : local('Audiowide'), url(./assets/fonts/Audiowide-Regular.ttf);
+	font-family : "young_serif";
+	src : local('Youngserif'), url(./assets/fonts/YoungSerif-Regular.otf);
 }
 
 html {
@@ -26,9 +27,9 @@ html {
 }
 
 .card-title {
-	font-family: "circles_names";
+	font-family: "pool_names";
   margin: 0;
-  font-size: 1.2em;
+  font-size: 1.7em;
 }
 
 .cicon{
@@ -73,9 +74,66 @@ a:hover {
 .banner {
   min-width: 100vw;
   width: auto;
-  height: 400px;
+  height: 66vh;
   background: url('./assets/banner.jpg') no-repeat center center;
   background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  .header {
+    padding: 15px 20px;
+    overflow: hidden;
+    background: inherit;
+    position: relative;
+
+    h1 {
+      font-family: "young_serif";
+    }
+    small {
+      font-family: "pool_names"
+    }
+    h1, small {
+      margin: 0;
+      z-index: 1;
+      position: relative;
+    }
+  }
+
+  .header::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    -webkit-filter: blur(4px);
+    filter: blur(4px);
+    top: 0;
+    left: 0;
+  }
+
+  .header::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    top: 0;
+    left: 0;
+  }
+}
+
+.charity {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 5px 10px;
+  font-size: 1.4em;
+  background-color: rgba(0,0,0, 0.7)
+
 }
 
 a:hover {
@@ -90,7 +148,7 @@ a:hover {
 // blue peach
 $theme-colors: (
   warning: darken(#f2a365, 4%),
-  dark: darken(#222831, 5%),
+  dark: #141414,
   light: #ececec,
   primary: #ffc439,
   danger: #4ca89c,
@@ -98,7 +156,7 @@ $theme-colors: (
 );
 
 body {
-	background-color:  darken(#30475e, 5%) !important;
+	background-color: #272727 !important;
 }
 
 @import '~bootstrap/scss/bootstrap.scss';

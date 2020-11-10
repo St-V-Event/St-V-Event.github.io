@@ -33,25 +33,20 @@ const Stream = ({showStream, icon, title, id, channel, donations}) => {
         }
       </a>
       <div className="card-body">
-
-        <div className="row text-warning">
-          <div className="col-8"/>
-          <div className="col-4 text-center">
-            {donations.toFixed(2)}€
-          </div>
-        </div>
         <div className="row">
-          <div className="col-8 text-nowrap">
+          <div className="col-8 text-nowrap" style={{display: "flex", alignItems: "end", justifyContent: "left"}}>
             <a target="_blank" href={"https://www.twitch.tv/"+channel}>
               <span className="card-title text-light">{title}</span>
             </a>
           </div>
-          <div className="col-4 text-center">
-            <Link to={"/donate/"+channel} data-toggle="tooltip" data-placement="bottom" data-html="true" title="Donate now">
-              <button className="btn btn-warning">
-                <img src={process.env.PUBLIC_URL+"/coin.svg"} className="cicon icon"/>
-              </button>
-            </Link>
+          <div className="col-4 text-center text-warning">
+              {donations.toFixed(2)}€
+              <br/>
+              <Link to={"/donate/"+channel} data-toggle="tooltip" data-placement="bottom" data-html="true" title="Donate now">
+                <button className="btn btn-warning">
+                  <img src={process.env.PUBLIC_URL+"/coin.svg"} className="cicon icon"/>
+                </button>
+              </Link>
           </div>
         </div>
       </div>
@@ -69,7 +64,25 @@ const Root = () => {
 
   return (
     <div>
-      <div className="text-center banner" />
+      <div className="text-center banner">
+        <div className="header">
+          <h1 className="display-4 text-light">
+            St Verhaegen 2020
+          </h1>
+          <small className="text-light">
+            Met afstand maar niet afstandelijk,
+            confiné.e.s mais pas aveuglé.e.s.
+          </small>
+        </div>
+        <div className="text-light charity">
+          All donations will benefit the non profit organisation
+          'Centre de prévention des violences conjugales et familiales'
+          {" "}<a href="http://www.cpvcf.org/" target="_blank"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-link" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+            <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+          </svg></a>
+        </div>
+      </div>
       <div className="container" style={{padding:"0px 1em"}}>
         <div className="row">
           <div className="custom-control custom-switch text-secondary">
