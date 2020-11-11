@@ -7,6 +7,7 @@ import Root from './Root';
 import Donation from './Donation';
 import Association from './Association';
 import Schedule from './Schedule';
+import Shop from './Shop';
 import Footer from './Footer';
 import {
   BrowserRouter as Router,
@@ -25,6 +26,7 @@ const App = () => {
               <Route exact path="/" component={ Root } />
               <Route path="/donate/:id" component={ Donation } />
               <Route path="/association" component={ Association } />
+              <Route path="/shop" component={ Shop } />
             </Switch>
           </div>
           <Footer/>

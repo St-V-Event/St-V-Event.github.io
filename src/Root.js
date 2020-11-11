@@ -5,7 +5,7 @@ import config from './config';
 import $ from 'jquery';
 import bootstrap from 'bootstrap';
 
-const Stream = ({showStream, icon, title, id, channel, donations}) => {
+const Stream = ({showStream, icon, title, id, channel, isPool, donations}) => {
   useEffect(() => {
     if (showStream) {
       new window.Twitch.Embed(id, {
@@ -39,15 +39,19 @@ const Stream = ({showStream, icon, title, id, channel, donations}) => {
               <span className="card-title text-light">{title}</span>
             </a>
           </div>
-          <div className="col-4 text-center text-warning">
-              {donations.toFixed(2)}€
-              <br/>
-              <Link to={"/donate/"+channel} data-toggle="tooltip" data-placement="bottom" data-html="true" title="Donate now">
-                <button className="btn btn-warning">
-                  <img src={process.env.PUBLIC_URL+"/coin.svg"} className="cicon icon"/>
-                </button>
-              </Link>
-          </div>
+          { isPool ?
+            <div className="col-4 text-center text-warning">
+                {donations.toFixed(2)}€
+                <br/>
+                <Link to={"/donate/"+channel} data-toggle="tooltip" data-placement="bottom" data-html="true" title="Donate now">
+                  <button className="btn btn-warning">
+                    <img src={process.env.PUBLIC_URL+"/coin.svg"} className="cicon icon"/>
+                  </button>
+                </Link>
+            </div>
+          :
+            <div className="col-4"/>
+          }
         </div>
       </div>
     </div>
@@ -77,7 +81,7 @@ const Root = () => {
         <div className="text-light charity">
           All donations will benefit the non profit organisation
           'Centre de prévention des violences conjugales et familiales'
-          {" "}<a href="http://www.cpvcf.org/" target="_blank"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-link" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          {" "}<a href="http://www.cpvcf.org/" target="_blank"><svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-link" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
             <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
           </svg></a>
