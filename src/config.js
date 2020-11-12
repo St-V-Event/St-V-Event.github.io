@@ -13,6 +13,12 @@ export default {
       channel: "stvebsg",
       isPool: false
     }, {
+      icon: process.env.PUBLIC_URL+"/logos/acs.png",
+      title: "ACS",
+      id: "twitch-embed-acs",
+      channel: "la_guindaille",
+      isPool: true
+    }, {
       icon: process.env.PUBLIC_URL+"/logos/orga.png",
       title: "Team Orga",
       id: "twitch-embed-orga",
@@ -105,22 +111,28 @@ export default {
     }
   ],
   shop: {
+    sizes: [
+      "S", "M", "L", "XL", "XXL", "3XL"
+    ],
     items: [
       {
         id: "t_shirt",
         name: "T-Shirt",
         url: process.env.PUBLIC_URL+"/logos/orga.png",
-        price: 7
+        price: 7,
+        hasSize: true
       }, {
         id: "sweat",
         name: "Sweat",
         url: process.env.PUBLIC_URL+"/logos/orga.png",
-        price: 15
+        price: 15,
+        hasSize: true
       }, {
         id: "mask",
         name: "Mask",
         url: process.env.PUBLIC_URL+"/logos/orga.png",
-        price: 5
+        price: 5,
+        hasSize: false
       }
     ]
   }
