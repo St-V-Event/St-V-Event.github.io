@@ -64,7 +64,7 @@ export default {
       icon: process.env.PUBLIC_URL+"/logos/philo_psy.png",
       title: "CPL-CdH-CJC-CROM-CHAA-CPSY",
       id: "twitch-embed-solb1",
-      channel: "celb_ulb",
+      channel: "sections_psycho_philo",
       isPool: true
     }, {
       icon: process.env.PUBLIC_URL+"/logos/cp_cds.png",
