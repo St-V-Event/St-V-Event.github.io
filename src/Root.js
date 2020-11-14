@@ -12,7 +12,7 @@ const Stream = ({showStream, icon, title, id, channel, isPool, donations}) => {
 				width: 300,
 				height: 200,
 				channel: channel,
-				parent: ["localhost"],
+				parent: [process.env.REACT_APP_HOST],
 				allowfullscreen : false,
 				autoplay : false,
 				muted : true,
