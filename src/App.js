@@ -8,6 +8,7 @@ import Donation from './Donation';
 import Association from './Association';
 import Schedule from './Schedule';
 import Shop from './Shop';
+import Discord from './Discord';
 import Footer from './Footer';
 import {
   BrowserRouter as Router,
@@ -29,6 +30,7 @@ const App = () => {
               <Route path="/shop" component={ Shop } />
             </Switch>
           </div>
+          <Discord/>
           <Footer/>
       </Router>
     </DonationProvider>
