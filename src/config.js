@@ -103,10 +103,16 @@ export default {
       channel: "isti_ulb",
       isPool: true
     }, {
-      icon: process.env.PUBLIC_URL+"/logos/orga.png",
+      icon: process.env.PUBLIC_URL+"/logos/guildes.png",
       title: "Guildes",
       id: "twitch-embed-guild",
       channel: "guildes_ulb",
+      isPool: true
+    }, {
+      icon: process.env.PUBLIC_URL+"/logos/cs.png",
+      title: "CS",
+      id: "twitch-embed-cs",
+      channel: "cerclesolvay_ulb",
       isPool: true
     }
   ],
