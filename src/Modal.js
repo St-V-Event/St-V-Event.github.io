@@ -13,27 +13,28 @@ class Modal extends React.Component {
     $(this.modal).modal('show')
   }
 
+  hide() {
+    $(this.modal).modal('hide')
+  }
+
   componentDidMount() {
     $(this.modal).modal('hide')
   }
 
   render() {
-    const { onSuccess } = this.props;
+    const { onSuccess, title } = this.props;
     return (
       <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" ref={modal=> this.modal = modal}>
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-header text-dark">
-              <h5 className="modal-title" id="exampleModalLabel">Successful donation</h5>
+              <h5 className="modal-title" id="exampleModalLabel">{title}</h5>
               <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div className="modal-body text-dark">
-              Thank you for your support <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-heart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fillRule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-              </svg><br/>
-              Please be patient, the payment may take a few minutes to appear.
+              { this.props.children }
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={onSuccess}>Continue</button>

@@ -17,12 +17,24 @@ const Donation = () => {
   let [ pseudo, setPseudo ] = useState("");
   let [ message, setMessage ] = useState("");
   let [ pool, setPool ] = useState(id);
-  let modal = useRef(null);
+  let modalSuccess = useRef(null);
+  let modalErr = useRef(null);
   let onAmountChange = e => setAmount(e.target.value);
   let onPseudoChange = e => setPseudo(e.target.value);
   let onMessageChange = e => setMessage(e.target.value);
   let onPoolChange = e => setPool(e.target.value);
   let updateAmount = amount => e => setAmount(amount);
+
+  let onPaypalButtonClick = (data, actions) => {
+    return new Promise((resolve, reject) => {
+      if (($.isNumeric(amount)) && (parseFloat(amount)>=1.00)) {
+        return resolve(actions.resolve());
+      }
+      modalErr.current.show()
+      setAmount(1.00)
+      return resolve(actions.reject());
+    })
+  }
 
   let createOrder = (data, actions) => {
     return actions.order.create({
@@ -47,7 +59,7 @@ const Donation = () => {
       console.log(err)
     })
     return actions.order.capture().then(details => {
-      modal.current.show();
+      modalSuccess.current.show();
     })
   }
 
@@ -74,7 +86,15 @@ const Donation = () => {
 
   return (
     <div className="container text-light">
-      <Modal ref={modal} onSuccess={onSuccess} />
+      <Modal title="Successful donation" ref={modalSuccess} onSuccess={onSuccess}>
+        Thank you for your support <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-heart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fillRule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+        </svg><br/>
+        Please be patient, the payment may take a few minutes to appear.
+      </Modal>
+      <Modal title="Value Error" ref={modalErr} onSuccess={e => modalErr.current.hide()}>
+         Input must be positive number and minimum donation is set to 1.00€.
+      </Modal>
       <h2>Make a donation</h2>
       <div className="form-group">
         <div>
@@ -102,7 +122,7 @@ const Donation = () => {
                 </span>
               </div>
               <select className="form-control" placeholder="Donation pool" value={pool} onChange={onPoolChange}>
-                { config.streams.map(({channel, title}) => (
+                { config.streams.filter(({isPool}) => isPool).map(({channel, title}) => (
                   <option key={channel} value={channel}>{title}</option>
                 ))}
               </select>
@@ -124,6 +144,7 @@ const Donation = () => {
                 <span className="input-group-text">Custom amount:</span>
               </div>
               <input
+                id="amount"
                 className="form-control"
                 value={amount}
                 type="number"
@@ -171,7 +192,7 @@ const Donation = () => {
           </div>
         </div>
         <div className="col-lg-5 col-md col-sm">
-          <PayPalButton createOrder={createOrder} onApprove={onApprove} />
+          <PayPalButton onClick={onPaypalButtonClick} createOrder={createOrder} onApprove={onApprove} />
         </div>
       </div>
 		</div>
