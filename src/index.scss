@@ -148,6 +148,19 @@ a:hover {
   text-overflow: clip;
 }
 
+#assoc ul {
+  list-style: none; /* Remove default bullets */
+}
+
+#assoc ul li::before {
+  content: "\25CB";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+  color: darken(#f2a365, 4%); /* Change the color */
+  display: inline-block; /* Needed to add space between the bullet and the text */
+  width: 1em; /* Also needed for space (tweak if needed) */
+  margin-left: -1em; /* Also needed for space (tweak if needed) */
+  font-size: 0.8em;
+}
+
 // blue peach
 $theme-colors: (
   warning: darken(#f2a365, 4%),
