@@ -86,19 +86,34 @@ const Donation = () => {
 
   return (
     <div className="container text-light">
-      <Modal title="Successful donation" ref={modalSuccess} onSuccess={onSuccess}>
-        Thank you for your support <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-heart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <Modal title="Don réussi" ref={modalSuccess} onSuccess={onSuccess}>
+        Merci pour votre soutien <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-heart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path fillRule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
         </svg><br/>
-        Please be patient, the payment may take a few minutes to appear.
+        S'il vous plaît soyez patient, le don peut prendre quelques minutes pour apparaître.
       </Modal>
-      <Modal title="Value Error" ref={modalErr} onSuccess={e => modalErr.current.hide()}>
-         Input must be positive number and minimum donation is set to 1.00€.
+      <Modal title="Erreur d'entrée" ref={modalErr} onSuccess={e => modalErr.current.hide()}>
+         Le montant doit être un nombre positif et le don minimum est de 1.00€.
       </Modal>
-      <h2>Make a donation</h2>
+      <h2>Faire un don</h2>
       <div className="form-group">
         <div>
-          Paypal payments include <span className="text-primary">variable fees (3.4%)</span>. Due to <span className="text-danger">fixed paypal fees (0.35€)</span>, prefer one single <span className="text-warning">large donation</span> rather than multiple small ones.
+          <p>
+            Les montants repris dans les cagnottes sont les
+            <span className="text-warning"> montants nets</span>, c-à-d des
+            montants où les frais de transaction Paypal ne sont pas
+            comptabilisés. Ces frais de transaction Paypal incluent des
+            <span className="text-primary"> frais variables (3.4%)</span> et des
+            <span className="text-danger"> frais fixes (0.35€)</span>. A cause
+            de ces derniers, préférez un <span className="text-warning"> gros
+            don</span> à plusieurs petits dons.
+          </p>
+          <p>
+            Il est également possible de passer un message sur le stream relatif
+            à la cagnotte sélectionnée.
+            La cagnotte 'Team Orga' n'est lié à aucun cercle ou regroupement et
+            apparait par défaut si vous ne sélectionnez pas de cagnotte.
+          </p>
         </div>
       </div>
       <div className="form-group">
@@ -112,7 +127,7 @@ const Donation = () => {
       </div>
       <div className="form-row">
         <div className="col-lg-7 col-md col-sm">
-          <div className="form-group" data-toggle="tooltip" data-placement="left" data-html="true" title="Choose a pool </br>of donators">
+          <div className="form-group" data-toggle="tooltip" data-placement="left" data-html="true" title="Choisir une cagnotte">
             <div className="input-group">
               <div className="input-group-prepend">
                 <span className="input-group-text">
@@ -121,7 +136,7 @@ const Donation = () => {
                   </svg>
                 </span>
               </div>
-              <select className="form-control" placeholder="Donation pool" value={pool} onChange={onPoolChange}>
+              <select className="form-control" placeholder="Cagnotte" value={pool} onChange={onPoolChange}>
                 { config.streams.filter(({isPool}) => isPool).map(({channel, title}) => (
                   <option key={channel} value={channel}>{title}</option>
                 ))}
@@ -138,10 +153,10 @@ const Donation = () => {
               </span>
             ))}
           </div>
-          <div className="form-group" data-toggle="tooltip" data-placement="left" data-html="true" title="Mind the fees">
+          <div className="form-group" data-toggle="tooltip" data-placement="left" data-html="true" title="Attention aux frais</br>de transaction paypal">
             <div className="input-group">
               <div className="input-group-prepend">
-                <span className="input-group-text">Custom amount:</span>
+                <span className="input-group-text">Montant personnalisé:</span>
               </div>
               <input
                 id="amount"
@@ -156,7 +171,7 @@ const Donation = () => {
               </div>
             </div>
           </div>
-          <div className="form-group" data-toggle="tooltip" data-placement="left" data-html="true" title="To appear live <br/>on the stream">
+          <div className="form-group" data-toggle="tooltip" data-placement="left" data-html="true" title="Qui apparaitra </br>sur le stream twitch">
             <div className="input-group">
               <div className="input-group-prepend">
                 <span className="input-group-text">
@@ -169,11 +184,11 @@ const Donation = () => {
                 className="form-control"
                 value={pseudo}
                 type="text"
-                placeholder="Pseudo (optional)"
+                placeholder="Pseudo (optionnel)"
                 onChange={onPseudoChange} />
             </div>
           </div>
-          <div className="form-group" data-toggle="tooltip" data-placement="left" data-html="true" title="To appear live <br/>on the stream">
+          <div className="form-group" data-toggle="tooltip" data-placement="left" data-html="true" title="Qui apparaitra </br>sur le stream twitch">
             <div className="input-group">
               <div className="input-group-prepend">
                 <span className="input-group-text">
@@ -186,7 +201,7 @@ const Donation = () => {
                 className="form-control"
                 value={message}
                 type="text"
-                placeholder="Message (optional)"
+                placeholder="Message (optionnel)"
                 onChange={onMessageChange} />
             </div>
           </div>
