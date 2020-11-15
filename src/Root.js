@@ -8,26 +8,28 @@ import bootstrap from 'bootstrap';
 const Stream = ({showStream, icon, title, id, channel, isPool, donations}) => {
   useEffect(() => {
     if (showStream) {
-      new window.Twitch.Embed(id, {
-				width: 300,
-				height: 200,
-				channel: channel,
-				parent: [process.env.REACT_APP_HOST],
-				allowfullscreen : false,
-				autoplay : false,
-				muted : true,
-				layout : ["video"]
-			});
+      if ($(id).length===0) {
+        new window.Twitch.Embed(id, {
+  				width: "100%",
+  				height: "100%",
+  				channel: channel,
+  				parent: [process.env.REACT_APP_HOST],
+  				allowfullscreen : false,
+  				autoplay : false,
+  				muted : true,
+  				layout : ["video"]
+  			});
+      }
     }
   })
   useEffect(() => {
     $("[data-toggle='tooltip']").tooltip()
   })
   return (
-    <div className="col-sm-6 col-md-4 col-lg-3">
+    <div className={showStream ? "col-lg-4 col-md-6 col-sm-12" : "col-sm-6 col-md-4 col-lg-3"}>
       <a target="_blank" href={"https://www.twitch.tv/"+channel} data-toggle="tooltip" data-placement="top" data-html="true" title="Watch on twitch">
         { showStream ?
-          <div id={id} />
+          <div id={id} className="twitch-video" />
         :
           <img className="card-img-top" src={icon} />
         }
@@ -50,7 +52,7 @@ const Stream = ({showStream, icon, title, id, channel, isPool, donations}) => {
                 </Link>
             </div>
           :
-            <div className="col-4"/>
+            <div className="col-4" style={{height: "3.87em"}}/>
           }
         </div>
       </div>

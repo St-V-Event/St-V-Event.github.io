@@ -161,6 +161,20 @@ a:hover {
   font-size: 0.8em;
 }
 
+@media screen and (min-width: 850px) {
+
+  .twitch-video {
+    padding-bottom: 56.25%;
+    position: relative;
+
+    iframe {
+      position: absolute;
+    }
+  }
+
+}
+
+
 // blue peach
 $theme-colors: (
   warning: darken(#f2a365, 4%),
