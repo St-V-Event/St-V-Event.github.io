@@ -4,7 +4,7 @@ export default {
       icon: process.env.PUBLIC_URL+"/logos/ace.png",
       title: "ACE",
       id: "twitch-embed-ace",
-      channel: "ace-ulb",
+      channel: "ace_ulb",
       isPool: true
     }, {
       icon: process.env.PUBLIC_URL+"/logos/bsg.png",
@@ -137,7 +137,7 @@ export default {
         id: "mask",
         name: "Mask",
         url: process.env.PUBLIC_URL+"/logos/orga.png",
-        price: 5,
+        price: 4,
         hasSize: false
       }
     ]

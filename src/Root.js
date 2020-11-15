@@ -94,10 +94,11 @@ const Root = () => {
           <div className="custom-control custom-switch text-secondary">
             <input type="checkbox" className="custom-control-input" id="customSwitch1" checked={showStream} onChange={e => setShowStream(e.target.checked)} />
             <label className="custom-control-label" htmlFor="customSwitch1">
-              Display twitch streams <span>(warning it may cause performance issues)</span>
+              Display twitch streams (warning it may cause performance issues)
             </label>
           </div>
         </div>
+        <br/>
         <div className="row align-items-end">
           { config.streams.map(props => (
             <Stream {...props} key={props.id} showStream={showStream} donations={getPoolDonation(props.channel)} />

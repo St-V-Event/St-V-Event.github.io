@@ -69,7 +69,7 @@ const Shop = () => {
               <img className="card-img-top bg-danger" src={url} />
               <div className="card-body">
                 <div className="row">
-                  <div className="col">
+                  <div className="col" style={{fontSize: "0.9em"}}>
                     <span className="card-title">{name} {price.toFixed(2)}€</span>
                   </div>
                   <div className="col-3 text-right"/>
