@@ -1,4 +1,7 @@
 export default {
+  pool: {
+    default: "team_organisateur",
+  },
   streams : [
     {
       icon: process.env.PUBLIC_URL+"/logos/ace.png",
@@ -22,7 +25,7 @@ export default {
       icon: process.env.PUBLIC_URL+"/logos/orga.png",
       title: "Team Orga",
       id: "twitch-embed-orga",
-      channel: "team-organisateur",
+      channel: "team_organisateur",
       isPool: true
     }, {
       icon: process.env.PUBLIC_URL+"/logos/ci.png",

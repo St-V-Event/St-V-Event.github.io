@@ -1,8 +1,9 @@
 import ReactDOM from "react-dom";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import config from "./config";
 import $ from 'jquery';
 import bootstrap from 'bootstrap';
+import Modal from './Modal';
 
 const PayPalButton = window.paypal.Buttons.driver("react", { React, ReactDOM });
 
@@ -12,11 +13,13 @@ const items = config.shop.items.reduce((acc, item) => {
 }, {});
 
 const Shop = () => {
+  let modalErr = useRef(null);
   let [ basket, setBasket ] = useState({});
   let [ mail, setMail ] = useState("");
   let [ name, setName ] = useState("");
-  let [ address, setAddress ] = useState("");
+  let [ pool, setPool ] = useState(config.pool.default);
   let [ phone, setPhone ] = useState("");
+  let [ errContent, setErrContent ] = useState(null);
 
   $("[data-toggle='tooltip']").tooltip('hide')
   useEffect(() => {
@@ -25,8 +28,8 @@ const Shop = () => {
 
   const onMailChange = e => setMail(e.target.value);
   const onNameChange = e => setName(e.target.value);
-  const onAddressChange = e => setAddress(e.target.value);
   const onPhoneChange = e => setPhone(e.target.value);
+  const onPoolChange = e => setPool(e.target.value);
 
   let onAddToBasket = (id, size) => e => {
     setBasket({
@@ -56,11 +59,72 @@ const Shop = () => {
     const [id, _] = key.split(',');
     return acc+(items[id].price*quantity)
   }, 0);
+
+  const validateEmail = () => /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(mail)
+
+  let onPaypalButtonClick = (data, actions) => {
+    return new Promise((resolve, reject) => {
+      const validators = [
+        [
+          () => Object.keys(basket).length!==0,
+          "Basket is empty."
+        ], [
+          validateEmail,
+          "Enter a valid email."
+        ], [
+          () => name.length!==0,
+          "Name must not be empty."
+        ]
+      ]
+      for (const [validator, errStr] of validators) {
+        if (!validator()) {
+          setErrContent(errStr)
+          modalErr.current.show()
+          return resolve(actions.reject());
+        }
+      }
+      return resolve(actions.resolve());
+    })
+  }
+
+  let createOrder = (data, actions) => {
+    return fetch("http://localhost:8081/shop", {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({basket, mail, name, pool, phone})
+    }).then(res => {
+      return res.json()
+    })
+    .then(data => {
+      console.log(data)
+      return data.orderID
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
+
   return (
     <div className="container text-light">
+      <Modal title="An error occured" ref={modalErr}>
+        {errContent}
+      </Modal>
       <h2>Shop</h2>
       <div>
-        Explications du concept (prix, temps d'attente, livraison)
+        <p>
+          Explications du concept (prix, temps d'attente, livraison)
+        </p>
+        <p className="text-center">
+          <a href="" target="_blank">
+            <button className="btn btn-warning btn-lg" style={{fontFamily: "pool_names"}}>
+              Médaille / Medaille / Medal
+            </button>
+          </a>
+        </p>
       </div>
       <div className="row">
         { config.shop.items.map(({id, url, name, price, hasSize}) => (
@@ -158,12 +222,12 @@ const Shop = () => {
               <input
                 className="form-control"
                 value={mail}
-                type="text"
+                type="email"
                 placeholder="E-mail (*)"
                 onChange={onMailChange} />
             </div>
           </div>
-          <div className="form-group" data-toggle="tooltip" data-placement="left" data-html="true" title="NOM Prénom">
+          <div className="form-group" data-toggle="tooltip" data-placement="left" data-html="true" title="Full name">
             <div className="input-group">
               <div className="input-group-prepend">
                 <span className="input-group-text">
@@ -176,29 +240,27 @@ const Shop = () => {
                 className="form-control"
                 value={name}
                 type="text"
-                placeholder="NOM Prénom (*)"
+                placeholder="Full Name (*)"
                 onChange={onNameChange} />
             </div>
           </div>
-          <div className="form-group" data-toggle="tooltip" data-placement="left" data-html="true" title="Adresse">
+          <div className="form-group" data-toggle="tooltip" data-placement="left" data-html="true" title="Choose a </br>donation pool">
             <div className="input-group">
               <div className="input-group-prepend">
                 <span className="input-group-text">
-                <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-house-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <path fillRule="evenodd" d="M8 3.293l6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
-                  <path fillRule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
-                </svg>
+                  <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-people-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fillRule="evenodd" d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
+                  </svg>
                 </span>
               </div>
-              <input
-                className="form-control"
-                value={address}
-                type="text"
-                placeholder="Adresse (*)"
-                onChange={onAddressChange} />
+              <select className="form-control" placeholder="Pool" value={pool} onChange={onPoolChange}>
+                { config.streams.filter(({isPool}) => isPool).map(({channel, title}) => (
+                  <option key={channel} value={channel}>{title}</option>
+                ))}
+              </select>
             </div>
           </div>
-          <div className="form-group" data-toggle="tooltip" data-placement="left" data-html="true" title="Téléphone">
+          <div className="form-group" data-toggle="tooltip" data-placement="left" data-html="true" title="Phone">
             <div className="input-group">
               <div className="input-group-prepend">
                 <span className="input-group-text">
@@ -211,16 +273,16 @@ const Shop = () => {
                 className="form-control"
                 value={phone}
                 type="text"
-                placeholder="Téléphone"
+                placeholder="Phone"
                 onChange={onPhoneChange} />
             </div>
           </div>
           <div className="form-group text-right">
-            <span className="text-secondary">(*) obligatoire</span>
+            <span className="text-secondary">(*) mandatory</span>
           </div>
         </div>
         <div className="col">
-          <PayPalButton />
+          <PayPalButton onClick={onPaypalButtonClick} createOrder={createOrder} />
         </div>
       </div>
     </div>

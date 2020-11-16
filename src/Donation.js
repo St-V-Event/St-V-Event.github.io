@@ -42,7 +42,8 @@ const Donation = () => {
         amount: {
           value: amount.toString()
         }
-      }]
+      }],
+      description: pool
     })
   }
 
@@ -54,7 +55,7 @@ const Donation = () => {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({pseudo: pseudo, message: message})
+      body: JSON.stringify({pseudo, message})
     }).catch(err => {
       console.log(err)
     })
