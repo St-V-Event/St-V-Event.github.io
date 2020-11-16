@@ -1,5 +1,6 @@
 import ReactDOM from "react-dom";
 import React, { useState, useEffect, useRef } from "react";
+import { useHistory } from "react-router-dom";
 import config from "./config";
 import $ from 'jquery';
 import bootstrap from 'bootstrap';
@@ -13,7 +14,9 @@ const items = config.shop.items.reduce((acc, item) => {
 }, {});
 
 const Shop = () => {
+  let history = useHistory();
   let modalErr = useRef(null);
+  let modalSuccess = useRef(null);
   let [ basket, setBasket ] = useState({});
   let [ mail, setMail ] = useState("");
   let [ name, setName ] = useState("");
@@ -108,10 +111,29 @@ const Shop = () => {
     })
   }
 
+  let onApprove = (data, actions) => {
+    return actions.order.capture().then(details => {
+      modalSuccess.current.show();
+    })
+  }
+
+  const onSuccess = e => {
+    history.push('/');
+  }
+
   return (
     <div className="container text-light">
       <Modal title="An error occured" ref={modalErr}>
         {errContent}
+      </Modal>
+      <Modal title="Paymet success" ref={modalSuccess} onSuccess={onSuccess}>
+        Thank you for your support <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-heart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fillRule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+        </svg>
+        <br/>
+        Please be patient, the payment may take a few minutes to appear.
+        <br/>
+        For any issues, contact 'Team Orga' via discord.
       </Modal>
       <h2>Shop</h2>
       <div>
@@ -282,7 +304,7 @@ const Shop = () => {
           </div>
         </div>
         <div className="col">
-          <PayPalButton onClick={onPaypalButtonClick} createOrder={createOrder} />
+          <PayPalButton onClick={onPaypalButtonClick} createOrder={createOrder} onApprove={onApprove} />
         </div>
       </div>
     </div>
