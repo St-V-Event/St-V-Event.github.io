@@ -1,7 +1,7 @@
-import logo from './logo.svg';
 import { Link, useLocation } from 'react-router-dom';
 import useDonations from './DonationContext';
 import config from './config';
+
 
 const Nav = () => {
   let {donations} = useDonations();
@@ -12,14 +12,13 @@ const Nav = () => {
   const navItemClass = url => {
     return "nav-item"+(url===location.pathname && " active")
   }
-
   return (
     <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"/>
       </button>
       <Link className="navbar-brand" to="/">
-        <img src="/logo192.png" alt="" />
+        <img src={process.env.PUBLIC_URL+'logo512.png'} alt="" style={{height:"38px", width: "auto"}} />
       </Link>
 
       <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
