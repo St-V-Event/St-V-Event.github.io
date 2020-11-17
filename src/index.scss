@@ -175,6 +175,14 @@ a:hover {
 
 }
 
+.svg-primary {
+  fill: #4ca89c;
+}
+
+.svg-primary:hover {
+  fill: darken(#4ca89c, 10%);
+}
+
 
 // blue peach
 $theme-colors: (

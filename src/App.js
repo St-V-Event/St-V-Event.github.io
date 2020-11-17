@@ -22,7 +22,7 @@ const App = () => {
       <Router>
           <Toast/>
           <Nav/>
-          <div style={{paddingTop:"64px"}}>
+          <div style={{paddingTop:"64px", minHeight: "100vh"}}>
             <Switch>
               <Route exact path="/" component={ Root } />
               <Route path="/donate/:id" component={ Donation } />
