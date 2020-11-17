@@ -2,11 +2,17 @@ import {useEffect } from "react";
 import Timetable from './timetable/timetable.js';
 import config from './config';
 
+const streams = config.streams.reduce((acc, stream) => {
+  acc[stream.channel] = stream;
+  return acc
+}, {})
+
 const Schedule = () => {
   var timetable = new Timetable();
   timetable.setScope(0, 23);
   var renderer = new Timetable.Renderer(timetable);
-  timetable.addLocations(Object.keys(config.schedule))
+
+  timetable.addLocations(Object.keys(config.schedule).map(id => streams[id].title))
   const today = new Date();
 
   const toStartDate = duration => {
@@ -23,7 +29,7 @@ const Schedule = () => {
 
   Object.entries(config.schedule).map(([pool, events]) => {
     Object.entries(events).map(([duration, description]) => {
-      timetable.addEvent(duration+" "+description, pool, toStartDate(duration), toEndDate(duration));
+      timetable.addEvent(duration+" "+description, streams[pool].title, toStartDate(duration), toEndDate(duration));
     })
   })
 
