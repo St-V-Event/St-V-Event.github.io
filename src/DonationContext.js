@@ -9,8 +9,7 @@ export const DonationProvider = props => {
 
   useEffect(() => {
     socket.current = window.io(process.env.REACT_APP_API_URL+"/donation", {
-      path:'/api/socket.io',
-      transports : ['websocket']
+      path:'/api/socket.io'
     });
     socket.current.on('donations', res => {
       let curr_donations = res.reduce((acc, {pool, total}) => {
