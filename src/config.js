@@ -1,3 +1,5 @@
+import schedule from './schedule.json';
+
 export default {
   pool: {
     default: "team_organisateur",
@@ -140,9 +142,10 @@ export default {
         id: "mask",
         name: "Mask",
         url: process.env.PUBLIC_URL+"/logos/orga.png",
-        price: 4,
+        price: 5,
         hasSize: false
       }
     ]
-  }
+  },
+  schedule: schedule
 }

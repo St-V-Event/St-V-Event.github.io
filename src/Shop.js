@@ -141,7 +141,7 @@ const Shop = () => {
           Explications du concept (prix, temps d'attente, livraison)
         </p>
         <p className="text-center">
-          <a href="" target="_blank">
+          <a href="https://forms.gle/RJcjBQZChSECKztG9" target="_blank">
             <button className="btn btn-warning btn-lg" style={{fontFamily: "pool_names"}}>
               Médaille / Medaille / Medal
             </button>
