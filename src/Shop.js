@@ -92,7 +92,7 @@ const Shop = () => {
   }
 
   let createOrder = (data, actions) => {
-    return fetch("http://localhost:8081/shop", {
+    return fetch(process.env.REACT_APP_API_URL+"/api/shop", {
       method: "POST",
       mode: "cors",
       headers: {
