@@ -162,6 +162,14 @@ $timetable-background-color: #272727 !default
 			height: $timetable-hour-row-height
 			&:nth-of-type(odd)
 				background-color: $timetable-row-uneven-color
+				.time-entry
+					background-color: darken($timetable-entry-color, 15%)
+					border: 1px solid darken($timetable-entry-color, 25%)
+			&:nth-of-type(even)
+				.time-entry
+					background-color: $timetable-entry-color
+					border: 1px solid darken($timetable-entry-color, 10%)
+
 			&:first-of-type
 				border-top: $timetable-grid
 			&:last-of-type
@@ -187,7 +195,7 @@ $timetable-background-color: #272727 !default
 				background-size: $timetable-hour-column-width auto
 				background-position: -2px 0
 	.time-entry
-		background-color: $timetable-entry-color
+		// background-color: $timetable-entry-color
 		transition: 200ms background-color
 		height: $timetable-hour-row-height - 1px
 		display: block
@@ -197,7 +205,7 @@ $timetable-background-color: #272727 !default
 		white-space: normal
 		overflow: hidden
 		color: white
-		border: $timetable-entry-border
+		cursor: pointer
 		+valign-parent
 		small
 			display: block
