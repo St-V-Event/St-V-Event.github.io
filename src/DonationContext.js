@@ -25,7 +25,7 @@ export const DonationProvider = props => {
       setLastDonation({pool, amount})
       setDonations({
         ...donations,
-        [pool]: donations[pool]+parseFloat(amount)
+        [pool]: (donations[pool] || 0)+parseFloat(amount)
       })
     })
   }, [donations])
