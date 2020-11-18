@@ -206,7 +206,7 @@ const Shop = () => {
                 <div className="row" style={{paddingTop: "15px"}}>
                   { hasSize ?
                     <div className="col" style={{textAlignLast: "justify"}}>
-                      { config.shop.sizes.map(size => (
+                      { config.shop.sizes[id].map(size => (
                         <span key={size}>
                           <button className="btn btn-sm btn-warning font-weight-bold" onClick={onAddToBasket(id, size)}>
                             {size}

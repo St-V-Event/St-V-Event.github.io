@@ -122,9 +122,10 @@ export default {
     }
   ],
   shop: {
-    sizes: [
-      "S", "M", "L", "XL", "XXL", "3XL"
-    ],
+    sizes: {
+      "t_shirt": ["XS", "S", "M", "L", "XL", "XXL"],
+      "sweat": ["S", "M", "L", "XL", "XXL"]
+    },
     items: [
       {
         id: "t_shirt",
