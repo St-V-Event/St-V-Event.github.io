@@ -129,19 +129,19 @@ export default {
       {
         id: "t_shirt",
         name: "T-Shirt",
-        url: process.env.PUBLIC_URL+"/logos/orga.png",
+        url: process.env.PUBLIC_URL+"/shop/tshirt.png",
         price: 7,
         hasSize: true
       }, {
         id: "sweat",
         name: "Sweat",
-        url: process.env.PUBLIC_URL+"/logos/orga.png",
+        url: process.env.PUBLIC_URL+"/shop/pull.png",
         price: 15,
         hasSize: true
       }, {
         id: "mask",
         name: "Mask",
-        url: process.env.PUBLIC_URL+"/logos/orga.png",
+        url: process.env.PUBLIC_URL+"/shop/mask.png",
         price: 5,
         hasSize: false
       }
