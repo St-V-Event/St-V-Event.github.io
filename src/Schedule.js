@@ -9,7 +9,7 @@ const streams = config.streams.reduce((acc, stream) => {
 
 const Schedule = () => {
   var timetable = new Timetable();
-  timetable.setScope(0, 23);
+  timetable.setScope(0, 24);
   var renderer = new Timetable.Renderer(timetable);
 
   timetable.addLocations(Object.keys(config.schedule).map(id => streams[id].title))

@@ -29,7 +29,7 @@ Timetable.Renderer = function(tt) {
 		return number === parseInt(number, 10);
 	}
 	function isInHourRange(number) {
-		return number >= 0 && number < 24;
+		return number >= 0 && number <= 24;
 	}
 	function locationExistsIn(loc, locs) {
 		return locs.indexOf(loc) !== -1;
@@ -158,19 +158,11 @@ Timetable.Renderer = function(tt) {
 				var completed = false;
 				var looped = false;
 
-				for (var hour=timetable.scope.hourStart; !completed;) {
+				for (var hour=timetable.scope.hourStart; hour<timetable.scope.hourEnd; hour++) {
 					var liNode = headerULNode.appendChild(document.createElement('li'));
 					var spanNode = liNode.appendChild(document.createElement('span'));
 					spanNode.className = 'time-label';
 					spanNode.textContent = prettyFormatHour(hour, timetable.usingTwelveHour);
-
-					if (hour === timetable.scope.hourEnd && (timetable.scope.hourStart !== timetable.scope.hourEnd || looped)) {
-						completed = true;
-					}
-					if (++hour === 24) {
-						hour = 0;
-						looped = true;
-					}
 				}
 				return headerNode;
 			}
