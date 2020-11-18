@@ -146,9 +146,10 @@ Timetable.Renderer = function(tt) {
 					var divRow = spanNode.appendChild(document.createElement('div'))
 					divRow.className = "row"
 					var lCol = divRow.appendChild(document.createElement('div'))
-					lCol.className = "col"
+					lCol.className = "col-8"
+					lCol.style = "width: 160px"
 					var rCol = divRow.appendChild(document.createElement('div'))
-					rCol.className = "col text-right"
+					rCol.className = "col-4 text-right"
 
 					lCol.textContent = streams[timetable.locations[k]].title;
 					var a = rCol.appendChild(document.createElement('a'))
