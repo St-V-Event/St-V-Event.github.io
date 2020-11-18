@@ -289,7 +289,8 @@ const Shop = () => {
                 value={mail}
                 type="email"
                 placeholder="E-mail (*)"
-                onChange={onMailChange} />
+                onChange={onMailChange}
+                maxlength="254" />
             </div>
           </div>
           <div className="form-group" data-toggle="tooltip" data-placement="left" data-html="true" title="Full name">
@@ -306,7 +307,8 @@ const Shop = () => {
                 value={name}
                 type="text"
                 placeholder="Full Name (*)"
-                onChange={onNameChange} />
+                onChange={onNameChange}
+                maxlength="254" />
             </div>
           </div>
           <div className="form-group" data-toggle="tooltip" data-placement="left" data-html="true" title="Choose a </br>donation pool">
@@ -339,7 +341,8 @@ const Shop = () => {
                 value={phone}
                 type="text"
                 placeholder="Phone"
-                onChange={onPhoneChange} />
+                onChange={onPhoneChange}
+                maxlength="254" />
             </div>
           </div>
           <div className="form-group text-right">

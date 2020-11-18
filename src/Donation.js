@@ -186,7 +186,8 @@ const Donation = () => {
                 value={pseudo}
                 type="text"
                 placeholder="Pseudo (optionnel)"
-                onChange={onPseudoChange} />
+                onChange={onPseudoChange}
+                maxlength="254" />
             </div>
           </div>
           <div className="form-group" data-toggle="tooltip" data-placement="left" data-html="true" title="Qui apparaitra </br>sur le stream twitch">
@@ -203,7 +204,8 @@ const Donation = () => {
                 value={message}
                 type="text"
                 placeholder="Message (optionnel)"
-                onChange={onMessageChange} />
+                onChange={onMessageChange}
+                maxlength="254" />
             </div>
           </div>
         </div>
