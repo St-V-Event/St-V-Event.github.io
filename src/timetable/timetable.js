@@ -1,5 +1,11 @@
 import './timetable.sass';
 import syncscroll from 'sync-scroll';
+import config from '../config';
+
+const streams = config.streams.reduce((acc, stream) => {
+  acc[stream.channel] = stream;
+  return acc
+}, {})
 
 var Timetable = function() {
 	this.scope = {
@@ -137,7 +143,21 @@ Timetable.Renderer = function(tt) {
 					var liNode = ulNode.appendChild(document.createElement('li'));
 					var spanNode = liNode.appendChild(document.createElement('span'));
 					spanNode.className = 'row-heading';
-					spanNode.textContent = timetable.locations[k];
+					var divRow = spanNode.appendChild(document.createElement('div'))
+					divRow.className = "row"
+					var lCol = divRow.appendChild(document.createElement('div'))
+					lCol.className = "col"
+					var rCol = divRow.appendChild(document.createElement('div'))
+					rCol.className = "col text-right"
+
+					lCol.textContent = streams[timetable.locations[k]].title;
+					var a = rCol.appendChild(document.createElement('a'))
+					a.href = "https://www.twitch.tv/"+timetable.locations[k]
+					a.target = "_blank"
+					var button = a.appendChild(document.createElement('button'))
+					button.className = "btn btn-sm btn-warning"
+					button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M2.149 0l-1.612 4.119v16.836h5.731v3.045h3.224l3.045-3.045h4.657l6.269-6.269v-14.686h-21.314zm19.164 13.612l-3.582 3.582h-5.731l-3.045 3.045v-3.045h-4.836v-15.045h17.194v11.463zm-3.582-7.343v6.262h-2.149v-6.262h2.149zm-5.731 0v6.262h-2.149v-6.262h2.149z" fill-rule="evenodd" clip-rule="evenodd"/></svg>'
+					button.title = "Watch on Twitch"
 				}
 			}
 			function appendTimetableSection(container) {
