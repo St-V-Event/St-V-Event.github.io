@@ -53,7 +53,7 @@ const Association = () => {
       </div>
       <br/>
       <div style={{textAlign: "center", fontFamily: "pool_names"}}>
-        <a href="http://www.cpvcf.org/rapport-dactivites/" target="_blank">
+        <a href="http://www.cpvcf.org/questions-frequentes/" target="_blank">
           <button className="btn btn-lg btn-warning">
             En savoir plus sur le CPVCF
           </button>
