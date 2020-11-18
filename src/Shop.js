@@ -17,6 +17,7 @@ const Shop = () => {
   let history = useHistory();
   let modalErr = useRef(null);
   let modalSuccess = useRef(null);
+  let [ lang, setLang ] = useState("FR");
   let [ basket, setBasket ] = useState({});
   let [ mail, setMail ] = useState("");
   let [ name, setName ] = useState("");
@@ -121,6 +122,15 @@ const Shop = () => {
     history.push('/');
   }
 
+  const onChangeLang = lang => e => {
+    e.preventDefault()
+    setLang(lang)
+  }
+
+  const badgeClassName = l => {
+    return "badge badge-pill "+(lang==l ? "badge-danger" : "badge-secondary")
+  }
+
   return (
     <div className="container text-light">
       <Modal title="An error occured" ref={modalErr}>
@@ -135,11 +145,44 @@ const Shop = () => {
         <br/>
         For any issues, contact 'Team Orga' via discord.
       </Modal>
-      <h2>Shop</h2>
       <div>
-        <p>
-          Explications du concept (prix, temps d'attente, livraison)
-        </p>
+        <div>
+          <div className="row mb-2">
+            <div className="col">
+              <h2 className="mb-0">Shop</h2>
+            </div>
+            <div className="col" style={{display: "flex", alignItems: "end", justifyContent: "right"}}>
+              <span>
+                <a href="" className={badgeClassName("FR")} style={{cursor: "pointer"}} onClick={onChangeLang("FR")}>FR</a>
+                {' '}<a href="" className={badgeClassName("NL")} style={{cursor: "pointer"}} onClick={onChangeLang("NL")}>NL</a>
+                {' '}<a href="" className={badgeClassName("EN")} style={{cursor: "pointer"}} onClick={onChangeLang("EN")}>EN</a>
+              </span>
+            </div>
+          </div>
+          <div>
+            { lang=="FR" &&
+              <div>
+                <p>Afin de se souvenir de cette Saint-V particulière et de récolter de l’argent au profit du Centre de Prévention des Violences Conjugales et Familiales, vous pouvez dès lors acheter des produits créés spécialement pour l’occasion.</p>
+                <p>Grâce à l’ULB qui finance l’entièreté des coups de production des textiles, l’argent que vous déboursez ira <span className="text-warning">entièrement dans la cagnotte</span> pour l’Association !! Comme pour les dons, vous pouvez vous affiliez (ou non) à la cagnotte d’un cercle.</p>
+                <p>Dans les semaines à venir, des permanences SUR INSCRIPTION se tiendront au local ACE (campus Solbosch) pour que vous veniez chercher votre commande. Dès ce lundi 23/11, un mail vous sera envoyé avec les modalités de retrait.</p>
+              </div>
+            }
+            { lang=="NL" &&
+              <div>
+                <p>Om deze uitzonderlijke Saint-Vé te blijven herinneren én om nog wat extra steun te geven aan het Centrum voor Preventie van Huiselijk en Familiaal Geweld (het goede doel dat de ULB-kringen steunen), zullen jullie speciale merchandise voor deze gelegenheid kunnen kopen.</p>
+                <p>Dankzij de ULB, die de productiekosten voor zich nam, zal het geld dat je hiervoor betaalt ook <span className="text-warning">integraal gedoneerd</span> worden!</p>
+                <p>Tijdens de komende weken zal je de bestelling OP AFSPRAAK kunnen afhalen bij het lokaal van de ACE (ULB campus Solbosch). Vanaf 23/11 kan je een mailtje verwachten met de nodige info voor je afhaling.</p>
+              </div>
+            }
+            { lang=="EN" &&
+              <div>
+                <p>To commemorate this special St-V edition and at the same time to raise money for the Centre de Prévention des Violences Conjugales et Familiales, we offer you to buy products designed especially for the occasion.</p>
+                <p>Thanks to the ULB, which agreed on funding all the financial costs of the textile production, the amount of money you will pay for you purchases will fully and immediately <span className="text-warning">go to the funding pot</span> directed to the Association! You also may (or may not) make a donation via the pot of a particular committee.</p>
+                <p>In the following weeks, permanences ON REGISTRATION will be organized in the ACE facilities (campus Solbosch) in order for you to come and get your purchase. Starting this Monday, 23/11, you’ll receive an email with all the information about the withdrawal options.</p>
+              </div>
+            }
+          </div>
+        </div>
         <p className="text-center">
           <a href="https://forms.gle/RJcjBQZChSECKztG9" target="_blank">
             <button className="btn btn-warning btn-lg" style={{fontFamily: "pool_names"}}>
