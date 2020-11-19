@@ -23,6 +23,11 @@ const App = () => {
           <Toast/>
           <Nav/>
           <div style={{paddingTop:"64px", minHeight: "100vh"}}>
+            <div className="alert text-center" style={{color: "#721c24", backgroundColor: "#f8d7da", borderColor: "#f5c6cb", margin:0}}>
+               Les paiements ne fonctionneront qu'à partir de minuit !
+               <br/>Les dons qui peuvent apparaitre jusque là ne sont que des tests.
+               <br/>On se retrouve tous à minuit !
+            </div>
             <Switch>
               <Route exact path="/" component={ Root } />
               <Route path="/donate/:id" component={ Donation } />

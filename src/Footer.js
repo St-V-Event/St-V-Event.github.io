@@ -14,7 +14,7 @@ const Footer = () => {
         </div>
         <div className="row">
           <div className="col text-left">
-            For any issues, contact 'Team orga' on <a href="https://discord.com/invite/CPvFTYFv?utm_source=Discord%20Widget&utm_medium=Connect" target="_blank" className="text-danger">Discord</a>
+            For any issues, contact 'Team orga' on <a href="https://discord.gg/fHkAe5bp" target="_blank" className="text-danger">Discord</a>
           </div>
         </div>
         <div className="row">
