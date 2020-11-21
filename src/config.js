@@ -39,7 +39,7 @@ export default {
       icon: process.env.PUBLIC_URL+"/logos/cepha.png",
       title: "CePha",
       id: "twitch-embed-CEPHA",
-      channel: "cepha_ulb",
+      channel: "pharma_ulb",
       isPool: true
     }, {
       icon: process.env.PUBLIC_URL+"/logos/cgeo.png",
