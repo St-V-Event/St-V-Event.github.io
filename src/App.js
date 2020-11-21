@@ -4,7 +4,6 @@ import './App.css';
 import Toast from './Toast';
 import Nav from './Nav';
 import Root from './Root';
-import Donation from './Donation';
 import Association from './Association';
 import Schedule from './Schedule';
 import Shop from './Shop';
@@ -23,14 +22,13 @@ const App = () => {
           <Toast/>
           <Nav/>
           <div style={{paddingTop:"64px", minHeight: "100vh"}}>
-            <div className="alert text-center" style={{color: "#721c24", backgroundColor: "#f8d7da", borderColor: "#f5c6cb", margin:0}}>
-               Les paiements ne fonctionneront qu'à partir de minuit !
-               <br/>Les dons qui peuvent apparaitre jusque là ne sont que des tests.
-               <br/>On se retrouve tous à minuit !
+            <div className="alert alert-success text-center mb-0">
+               Merci à tous pour tous vos dons qui dépassent tout ce que l'on pouvait espérer !
+               <br/>Merci à tous les cercles d'avoir jouer le jeu et d'avoir rendu cela possible !
+               <br/>Merci pour le soutient de l'ULB et de l'ACE. La Team Orga.
             </div>
             <Switch>
               <Route exact path="/" component={ Root } />
-              <Route path="/donate/:id" component={ Donation } />
               <Route path="/association" component={ Association } />
               <Route path="/schedule" component={ Schedule } />
               <Route path="/shop" component={ Shop } />
