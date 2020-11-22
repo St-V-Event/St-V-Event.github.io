@@ -26,6 +26,10 @@ const App = () => {
                Merci à tous pour tous vos dons qui dépassent tout ce que l'on pouvait espérer !
                <br/>Merci à tous les cercles d'avoir jouer le jeu et d'avoir rendu cela possible !
                <br/>Merci pour le soutient de l'ULB et de l'ACE. La Team Orga.
+               <br/>
+               <br/>Pour celles et ceux qui n’auraient pas encore eu l’occasion de faire un don,
+               <br/>il vous est toujours possible de faire un virement bancaire (jusqu’au mercredi 25/11)
+               <br/>directement sur le compte de l’ACE : BE52 3631 1343 8409 avec la communication : « Don quête sociale 2020 ».
             </div>
             <Switch>
               <Route exact path="/" component={ Root } />
