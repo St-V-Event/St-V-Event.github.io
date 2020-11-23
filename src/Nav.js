@@ -1,14 +1,8 @@
 import { Link, useLocation } from 'react-router-dom';
-import useDonations from './DonationContext';
 import config from './config';
 
-
 const Nav = () => {
-  let {donations} = useDonations();
-  const totalDonations = () => Object.values(donations).reduce((acc,val) => acc + val, 0);
-
-  let location = useLocation();
-
+  const location = useLocation();
   const navItemClass = url => {
     return "nav-item"+(url===location.pathname && " active")
   }
@@ -40,7 +34,7 @@ const Nav = () => {
           <ul className="navbar-nav navbar-right">
             <li className="nav-item">
               <span className="nav-link text-warning text-center">
-                Total {totalDonations().toFixed(2)}€
+                Total {config.total.toFixed(2)}€
               </span>
             </li>
           </ul>

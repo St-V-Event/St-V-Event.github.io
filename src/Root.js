@@ -1,6 +1,5 @@
 import { useEffect, useState, useRef } from "react";
 import { Link } from 'react-router-dom';
-import useDonations from './DonationContext';
 import config from './config';
 import $ from 'jquery';
 import bootstrap from 'bootstrap';
@@ -56,11 +55,6 @@ const Stream = ({showStream, icon, title, id, channel, isPool, donations}) => {
 
 const Root = () => {
   let [showStream, setShowStream] = useState(false);
-  let { donations } = useDonations();
-
-  const getPoolDonation = pool => {
-    return donations.hasOwnProperty(pool) ? donations[pool] : 0
-  }
 
   return (
     <div>
@@ -95,7 +89,7 @@ const Root = () => {
         <br/>
         <div className="row align-items-end">
           { config.streams.map(props => (
-            <Stream {...props} key={props.id} showStream={showStream} donations={getPoolDonation(props.channel)} />
+            <Stream {...props} key={props.id} showStream={showStream}/>
           ))}
     		</div>
       </div>
