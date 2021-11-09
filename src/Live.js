@@ -9,7 +9,6 @@ const Live = () => {
 			channel: "ace_ulb",
 			parent: [process.env.REACT_APP_HOST],
 			allowfullscreen : true,
-			autoplay : true,
 			muted : true,
 			layout : ["video"]
 		});

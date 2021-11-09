@@ -19,14 +19,14 @@ const Footer = () => {
         </div>
         <div className="row">
           <div className="col text-left">
-            Stay home / Party online / <a href="https://www.facebook.com/camsaoule/" target="_blank" className="text-danger">Drink responsibly</a>
+            Inspired by <a href="https://zevent.fr/" target="blank" className="text-danger">Z-Event</a>
+            {" "}· Initiated by <a href="https://cercle-informatique.be/" className="text-danger">CI</a>
+            {" "}· Supported by <a href="http://ace-ulb.org/page/index" className="text-danger">ACE</a>
           </div>
         </div>
         <div className="row">
           <div className="col text-left">
-            Inspired by <a href="https://zevent.fr/" target="blank" className="text-danger">Z-Event</a>
-            {" "}· Initiated by <a href="https://cercle-informatique.be/" className="text-danger">CI</a>
-            {" "}· Supported by <a href="http://ace-ulb.org/page/index" className="text-danger">ACE</a>
+            <a href="https://www.facebook.com/camsaoule/" target="_blank" className="text-danger">Drink responsibly</a>
           </div>
         </div>
       </div>
