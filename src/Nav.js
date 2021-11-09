@@ -21,20 +21,17 @@ const Nav = () => {
             <li className={navItemClass("/")}>
               <Link className="nav-link" to="/">Home</Link>
             </li>
-            <li className={navItemClass("/association")}>
-              <Link className="nav-link" to="/association">Association</Link>
+            <li className={navItemClass("/lastEdition")}>
+              <Link className="nav-link" to="/lastEdition">Last Edition</Link>
             </li>
-            <li className={navItemClass("/schedule")}>
-              <Link className="nav-link" to="/schedule">Schedule</Link>
-            </li>
-            <li className={navItemClass("/shop")}>
-              <Link className="nav-link" to="/shop">Shop</Link>
+            <li className={navItemClass("/live")}>
+              <Link className="nav-link" to="/live">Live</Link>
             </li>
           </ul>
           <ul className="navbar-nav navbar-right">
             <li className="nav-item">
               <span className="nav-link text-warning text-center">
-                Total {config.total.toFixed(2)}€
+                Dernière édition {config.total.toFixed(2)}€
               </span>
             </li>
           </ul>
