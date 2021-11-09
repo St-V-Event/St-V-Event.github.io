@@ -27,7 +27,6 @@ const Footer = () => {
             Inspired by <a href="https://zevent.fr/" target="blank" className="text-danger">Z-Event</a>
             {" "}· Initiated by <a href="https://cercle-informatique.be/" className="text-danger">CI</a>
             {" "}· Supported by <a href="http://ace-ulb.org/page/index" className="text-danger">ACE</a>
-            {" "}· Benefiting <a href="http://www.cpvcf.org/" className="text-danger">CPVCF</a>
           </div>
         </div>
       </div>
