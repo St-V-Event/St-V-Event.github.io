@@ -21,8 +21,8 @@ const Nav = () => {
             <li className={navItemClass("/")}>
               <Link className="nav-link" to="/">Home</Link>
             </li>
-            <li className={navItemClass("/lastEdition")}>
-              <Link className="nav-link" to="/lastEdition">Last Edition</Link>
+            <li className={navItemClass("/association")}>
+              <Link className="nav-link" to="/association">Association</Link>
             </li>
             <li className={navItemClass("/live")}>
               <Link className="nav-link" to="/live">Live</Link>
@@ -31,7 +31,7 @@ const Nav = () => {
           <ul className="navbar-nav navbar-right">
             <li className="nav-item">
               <span className="nav-link text-warning text-center">
-                Dernière édition {config.total.toFixed(2)}€
+                Dernière édition 18 193€
               </span>
             </li>
           </ul>

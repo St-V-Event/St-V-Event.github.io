@@ -4,7 +4,7 @@ const Footer = () => {
       <div className="container">
         <div className="row" style={{paddingBottom: "5px"}}>
           <div className="col text-left">
-            <a href="https://www.facebook.com/events/416761879653168" target="_blank">
+            <a href="https://www.facebook.com/events/2709314986001013" target="_blank">
               <svg xmlns="http://www.w3.org/2000/svg" className="svg-primary" width="24" height="24" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
             </a>
             &nbsp;&nbsp;&nbsp;<a href="https://www.instagram.com/stvevent/" target="_blank">
@@ -19,14 +19,18 @@ const Footer = () => {
         </div>
         <div className="row">
           <div className="col text-left">
-            Inspired by <a href="https://zevent.fr/" target="blank" className="text-danger">Z-Event</a>
-            {" "}· Initiated by <a href="https://cercle-informatique.be/" className="text-danger">CI</a>
-            {" "}· Supported by <a href="http://ace-ulb.org/page/index" className="text-danger">ACE</a>
+            Inspired by <a href="https://zevent.fr/" target="_blank" className="text-danger">Z-Event</a>
+            {" "}· Initiated by <a href="https://cercle-informatique.be/" target="_blank" className="text-danger">CI</a>
+            {" "}· Supported by <a href="http://ace-ulb.org/page/index" target="_blank" className="text-danger">ACE</a>
+            {" "}· Benefiting <a href="https://www.cire.be" target="_blank" className="text-danger">Ciré</a>
           </div>
         </div>
         <div className="row">
           <div className="col text-left">
             <a href="https://www.facebook.com/camsaoule/" target="_blank" className="text-danger">Drink responsibly</a>
+            {" "}· <a href="https://actus.ulb.be/fr/agenda/agenda-culturel/celebrons-la-saint-verhaegen-2021" target="_blank" className="text-danger">
+              Et une bonne St-V à tous.tes!
+            </a>
           </div>
         </div>
       </div>

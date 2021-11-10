@@ -12,7 +12,7 @@ const Live = () => {
 			muted : true,
 			layout : ["video"]
 		});
-  })
+  }, [])
   useEffect(() => {
     $("[data-toggle='tooltip']").tooltip()
   })
