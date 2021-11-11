@@ -20,7 +20,7 @@ const App = () => {
         <Nav/>
         <div style={{paddingTop:"64px", minHeight: "100vh"}}>
           <div className="alert alert-success text-center mb-0">
-             Les dons ne seront possible qu'à partir de lundi 15 novembre 2021 à 18h00.
+             Les dons ne seront possibles qu'à partir de lundi 15 novembre 2021 à 18h00.
           </div>
           <Switch>
             <Route exact path="/" component={ Root } />
