@@ -188,6 +188,8 @@ const Root = () => {
               </svg>
             </a></p>
 
+            <p>Mardi 16 novembre - Atelier Fresque du climat avec le Cercle Polytechnique (event à venir)</p>
+
             <p>Mercredi 17 novembre à 15h00 - Conférence “libre de détruire mais pas d’accueillir” CPS-CPL-ACE
             {' '}<a href="https://www.facebook.com/events/407403431049689" target="_blank">
               <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-link text-warning" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -197,6 +199,22 @@ const Root = () => {
             </a></p>
 
             <p>Mercedi 17 novembre - Aprèm sociale au CdS (event à venir)</p>
+
+            <p>Mercredi 17 novembre - Pré-TD Social au Cercle des étudiants en Philosophie et Sciences sociales - CPS (event à venir)</p>
+
+            <p>Jeudi 18 novembre à 18h30 - «Conférence Théodore Verhaegen» de l’ULB à la Salle Dupreel {' '}<a href="https://bit.ly/3Hiird6" target="_blank">
+              <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-link text-warning" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+                <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+              </svg>
+            </a></p>
+
+            <p>Vendredi 19 novembre de 8h à 14h - Commémorations et discours {' '}<a href="https://www.ulb.be/fr/l-ulb-en-bref/la-saint-verhaegen-2021" target="_blank">
+              <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-link text-warning" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+                <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+              </svg>
+            </a></p>
 
             <p>Lundi 22 novembre à 19h00 - Conférence AIC-ACE-Librex : COP26 (event à venir)</p>
 
