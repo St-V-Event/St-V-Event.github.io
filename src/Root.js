@@ -145,6 +145,16 @@ const Root = () => {
             d’une liberté et d’une égalité de tous et toutes, chose loin d’être
             acquise par la ville en 1974 !
           </p>
+
+          <br/>
+          <div style={{textAlign: "center", fontFamily: "pool_names"}}>
+            <a href="https://www.ulb.be/fr/l-ulb-en-bref/la-saint-verhaegen-2021" target="_blank">
+              <button className="btn btn-lg btn-warning">
+                En savoir plus sur la St-V
+              </button>
+            </a>
+          </div>
+          <br/>
         </div>
         <div className="text-light">
           <p>
@@ -153,7 +163,7 @@ const Root = () => {
             </b>
           </p>
           <p>
-            <p>Lundi 15 - Pre-TD social CARé (event à venir)</p>
+            <p>Lundi 15 novembre - Pre-TD social CARé (event à venir)</p>
 
             <p>Mardi 16 novembre à 18h00 - Soirée solidaire CKO et ISEP
             {' '}<a href="https://fb.me/e/2JzMuuv5g" target="_blank">
@@ -258,13 +268,13 @@ const Root = () => {
 
     <div className="col-sm-6 col-md-4 col-lg-3">
       <a target="_blank" href={"https://facebook.com/events/s/la-saint-v-avec-le-cgeo-et-le-/1051146195639404/"} data-toggle="tooltip" data-placement="top" data-html="true">
-        <img className="card-img-top" src={process.env.PUBLIC_URL+"/logos/cgeo.png"} />
+        <img className="card-img-top" src={process.env.PUBLIC_URL+"/logos/cicgeo.png"} />
       </a>
       <div className="card-body">
         <div className="row">
           <div className="text-nowrap">
             <a target="_blank" href="https://facebook.com/events/s/la-saint-v-avec-le-cgeo-et-le-/1051146195639404/">
-              <span className="card-title text-light">St-V CGéo</span>
+              <span className="card-title text-light">St-V CI-CGéo</span>
             </a>
           </div>
         </div>
