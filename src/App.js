@@ -6,6 +6,7 @@ import Schedule from './Schedule';
 import Shop from './Shop';
 import Live from './Live';
 import Association from './Association';
+import Sablon from './Sablon';
 import Discord from './Discord';
 import Footer from './Footer';
 import {
@@ -27,6 +28,7 @@ const App = () => {
             <Route path="/shop" component={ Shop } />
             <Route path="/live" component={ Live } />
             <Route path="/association" component={ Association } />
+            <Route path="/sablon" component={ Sablon } />
           </Switch>
         </div>
         <Discord/>

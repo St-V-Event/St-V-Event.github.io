@@ -27,6 +27,9 @@ const Nav = () => {
             <li className={navItemClass("/live")}>
               <Link className="nav-link" to="/live">Live</Link>
             </li>
+            <li className={navItemClass("/sablon")}>
+              <Link className="nav-link" to="/sablon">Sablon</Link>
+            </li>
           </ul>
           <ul className="navbar-nav navbar-right">
             <li className="nav-item">
