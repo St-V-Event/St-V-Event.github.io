@@ -415,21 +415,6 @@ const Root = () => {
     </div>
 
     <div className="col-sm-6 col-md-4 col-lg-3">
-      <a target="_blank" rel="noreferrer" href="https://www.facebook.com/events/683177612660035" data-toggle="tooltip" data-placement="top" data-html="true">
-        <img className="card-img-top" src={process.env.PUBLIC_URL+"/logos/isep.png"} />
-      </a>
-      <div className="card-body">
-        <div className="row">
-          <div className="text-nowrap">
-            <a target="_blank" rel="noreferrer" href="https://www.facebook.com/events/683177612660035">
-              <span className="card-title text-light">St-V ISEP</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div className="col-sm-6 col-md-4 col-lg-3">
       <a target="_blank" href="https://www.facebook.com/events/683177612660035" data-toggle="tooltip" data-placement="top" data-html="true">
         <img className="card-img-top" src={process.env.PUBLIC_URL+"/logos/isepk.png"} />
       </a>
