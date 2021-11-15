@@ -13,6 +13,10 @@ const stripePromise = loadStripe(config.stripe);
 const TrueForm = () => {
   const stripe = useStripe();
   const elements = useElements();
+  const [isReady, setIsReady] = useState(false);
+  const onReady = () => {
+    setIsReady(true)
+  }
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -41,7 +45,14 @@ const TrueForm = () => {
   }
   return (
     <form onSubmit={handleSubmit}>
-      <PaymentElement />
+      { !isReady &&
+        <div className="d-flex justify-content-center">
+          <div className="spinner-border text-danger" role="status">
+            <span className="sr-only">Loading...</span>
+          </div>
+        </div>
+      }
+      <PaymentElement onReady={onReady} />
       <br/>
       <button className="btn btn-warning">Donner!</button>
     </form>
@@ -49,7 +60,6 @@ const TrueForm = () => {
 }
 
 const CheckoutForm = ({clientSecret}) => {
-
   return (
     <div>
       { clientSecret &&
