@@ -5,7 +5,6 @@ import useDonations from './DonationContext';
 const Nav = () => {
   const location = useLocation();
   let {donations} = useDonations();
-  console.log(donations)
   const navItemClass = url => {
     return "nav-item"+(url===location.pathname && " active")
   }

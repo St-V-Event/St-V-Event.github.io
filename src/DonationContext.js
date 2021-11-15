@@ -6,12 +6,10 @@ export const DonationProvider = props => {
   const socket = useRef(null);
   const [lastDonation, setLastDonation] = useState(0);
   const [donations, setDonations] = useState(0);
-  console.log(donations)
 
   useEffect(() => {
     socket.current = window.io(process.env.REACT_APP_API_URL+"/donation", {});
     socket.current.on('donations', res => {
-      console.log('ok')
       setDonations(res)
     })
   }, []);

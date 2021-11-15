@@ -123,6 +123,7 @@ const Donate = props => {
 
   return (
     <div className="container text-light">
+      <br/>
       <Modal title="Payment" ref={modalPayment} buttonText="Annuler">
         <CheckoutForm clientSecret={clientSecret} />
       </Modal>
@@ -197,6 +198,7 @@ const Donate = props => {
       <div>
         <button className="btn btn-lg btn-warning" onClick={onCheckout}>Donner!</button>
       </div>
+      <br/>
 		</div>
   )
 }
