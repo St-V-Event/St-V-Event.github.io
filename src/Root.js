@@ -52,6 +52,11 @@ const Root = () => {
             </svg></a>
         </div>
       </div>
+      <div className="container text-center">
+        <br/>
+        <img src={process.env.PUBLIC_URL+"/logos/orga.png"} />
+        <br/><br/>
+      </div>
       <div className="container" style={{padding:"0px 1em"}}>
         <br/>
         <div className="text-light">
@@ -163,7 +168,7 @@ const Root = () => {
             </b>
           </p>
           <p>
-            <p>Lundi 15 novembre - Pre-TD social CARé (event à venir)</p>
+            <p>Lundi 15 novembre - Pre-TD social CARé</p>
 
             <p>Mardi 16 novembre à 18h00 - Soirée solidaire CKO et ISEP
             {' '}<a href="https://fb.me/e/2JzMuuv5g" target="_blank">
@@ -188,7 +193,23 @@ const Root = () => {
               </svg>
             </a></p>
 
-            <p>Mardi 16 novembre - Atelier Fresque du climat avec le Cercle Polytechnique (event à venir)</p>
+            <p>Mardi 16 novembre - Atelier Fresque du climat avec le Cercle Polytechnique
+            {' '}<a href="https://fb.me/e/1lfxily6w" target="_blank">
+              <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-link text-warning" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+                <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+              </svg>
+            </a></p>
+
+            <p>Mardi 16 novembre - Pré-TD Bagarre La Liégeoise
+            {' '}<a href="https://www.facebook.com/events/679129103075247" target="_blank">
+              <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-link text-warning" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+                <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+              </svg>
+            </a></p>
+
+            <p>Mardi 16 novembre - Pré-TD Social CGéo (event à venir)</p>
 
             <p>Mercredi 17 novembre à 15h00 - Conférence “libre de détruire mais pas d’accueillir” CPS-CPL-ACE
             {' '}<a href="https://www.facebook.com/events/407403431049689" target="_blank">
@@ -198,9 +219,37 @@ const Root = () => {
               </svg>
             </a></p>
 
-            <p>Mercedi 17 novembre - Aprèm sociale au CdS (event à venir)</p>
+            <p>Mercedi 17 novembre - Aprèm sociale au CdS
+            {' '}<a href="https://www.facebook.com/events/437668714394325" target="_blank">
+              <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-link text-warning" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+                <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+              </svg>
+            </a></p>
 
-            <p>Mercredi 17 novembre - Pré-TD Social au Cercle des étudiants en Philosophie et Sciences sociales - CPS (event à venir)</p>
+            <p>Mercedi 17 novembre - Aprèm Kriek et Croques et pré-TD Social du CD
+            {' '}<a href="https://www.facebook.com/events/306430677780671" target="_blank">
+              <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-link text-warning" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+                <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+              </svg>
+            </a></p>
+
+            <p>Mercredi 17 novembre - Pré-TD Social au CPS
+            {' '}<a href="https://facebook.com/events/s/pre-td-solidaire-bienvenue-a-l/297000535638079/" target="_blank">
+              <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-link text-warning" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+                <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+              </svg>
+            </a></p>
+
+            <p>Mercredi 17 novembre - Pré-TD Terroir de Bruxelles du CRom
+            {' '}<a href="https://fb.me/e/2K8IsbfUy" target="_blank">
+              <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-link text-warning" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+                <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+              </svg>
+            </a></p>
 
             <p>Jeudi 18 novembre à 18h30 - «Conférence Théodore Verhaegen» de l’ULB à la Salle Dupreel {' '}<a href="https://bit.ly/3Hiird6" target="_blank">
               <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-link text-warning" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -217,6 +266,8 @@ const Root = () => {
             </a></p>
 
             <p>Lundi 22 novembre à 19h00 - Conférence AIC-ACE-Librex : COP26 (event à venir)</p>
+
+            <p>Lundi 22 novembre Live solidaire du CP au Foyer Culturel (event à venir)</p>
 
             <p>Jeudi 24 novembre de 19h à 22h - LIBREX : Nourrir l'Humanité - Pièce de théâtre à l'ULB
             {' '}<a href="https://fb.me/e/1egUOQdE1" target="_blank">
@@ -404,6 +455,21 @@ const Root = () => {
           <div className="text-nowrap">
             <a target="_blank" href="https://www.facebook.com/events/683177612660035">
               <span className="card-title text-light">St-V ISEP</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div className="col-sm-6 col-md-4 col-lg-3">
+      <a target="_blank" href="https://fb.me/e/1qJSdL8d1" data-toggle="tooltip" data-placement="top" data-html="true">
+        <img className="card-img-top" src={process.env.PUBLIC_URL+"/logos/cpl.png"} />
+      </a>
+      <div className="card-body">
+        <div className="row">
+          <div className="text-nowrap">
+            <a target="_blank" href="https://fb.me/e/1qJSdL8d1">
+              <span className="card-title text-light">St-V CPL-CJC</span>
             </a>
           </div>
         </div>
