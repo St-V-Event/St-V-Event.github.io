@@ -298,13 +298,13 @@ const Root = () => {
 
     <div className="col-sm-6 col-md-4 col-lg-3">
       <a target="_blank" href={"https://facebook.com/events/s/saint-verhaegen-avec-cephafk/476874310529084/"} data-toggle="tooltip" data-placement="top" data-html="true">
-        <img className="card-img-top" src={process.env.PUBLIC_URL+"/logos/cepha.png"} />
+        <img className="card-img-top" src={process.env.PUBLIC_URL+"/logos/cepha+fk.png"} />
       </a>
       <div className="card-body">
         <div className="row">
           <div className="text-nowrap">
             <a target="_blank" href="https://facebook.com/events/s/saint-verhaegen-avec-cephafk/476874310529084/">
-              <span className="card-title text-light">St-V Pharma</span>
+              <span className="card-title text-light">St-V CePha-FK</span>
             </a>
           </div>
         </div>
@@ -448,13 +448,13 @@ const Root = () => {
 
     <div className="col-sm-6 col-md-4 col-lg-3">
       <a target="_blank" href="https://www.facebook.com/events/683177612660035" data-toggle="tooltip" data-placement="top" data-html="true">
-        <img className="card-img-top" src={process.env.PUBLIC_URL+"/logos/isep.png"} />
+        <img className="card-img-top" src={process.env.PUBLIC_URL+"/logos/isepk.png"} />
       </a>
       <div className="card-body">
         <div className="row">
           <div className="text-nowrap">
             <a target="_blank" href="https://www.facebook.com/events/683177612660035">
-              <span className="card-title text-light">St-V ISEP</span>
+              <span className="card-title text-light">St-V ISEP-CKO</span>
             </a>
           </div>
         </div>
@@ -463,13 +463,13 @@ const Root = () => {
 
     <div className="col-sm-6 col-md-4 col-lg-3">
       <a target="_blank" href="https://fb.me/e/1qJSdL8d1" data-toggle="tooltip" data-placement="top" data-html="true">
-        <img className="card-img-top" src={process.env.PUBLIC_URL+"/logos/cpl.png"} />
+        <img className="card-img-top" src={process.env.PUBLIC_URL+"/logos/cpl+cjc+lwk.png"} />
       </a>
       <div className="card-body">
         <div className="row">
           <div className="text-nowrap">
             <a target="_blank" href="https://fb.me/e/1qJSdL8d1">
-              <span className="card-title text-light">St-V CPL-CJC</span>
+              <span className="card-title text-light">St-V CPL-CJC-LWK</span>
             </a>
           </div>
         </div>
