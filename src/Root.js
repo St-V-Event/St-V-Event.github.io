@@ -1,34 +1,3 @@
-import { useEffect, useState, useRef } from "react";
-import { Link } from 'react-router-dom';
-import config from './config';
-import $ from 'jquery';
-import bootstrap from 'bootstrap';
-
-const Stream = ({icon, title, id, channel, isPool, donations}) => {
-  return (
-    <div className="col-sm-6 col-md-4 col-lg-3">
-      <a target="_blank" href={"https://www.twitch.tv/"+channel} data-toggle="tooltip" data-placement="top" data-html="true" title="Watch on twitch">
-        <img className="card-img-top" src={icon} />
-      </a>
-      <div className="card-body">
-        <div className="row">
-          <div className="col-8 text-nowrap" style={{display: "flex", alignItems: "end", justifyContent: "left"}}>
-            <a target="_blank" href={"https://www.twitch.tv/"+channel}>
-              <span className="card-title text-light">{title}</span>
-            </a>
-          </div>
-          { isPool ?
-            <div className="col-4 text-center text-warning pr-0 pl-0" style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
-                {donations.toFixed(2)}€
-            </div>
-          :
-            <div className="col-4" style={{height: "3.87em"}}/>
-          }
-        </div>
-      </div>
-    </div>
-  )
-}
 
 const Root = () => {
 
@@ -46,7 +15,7 @@ const Root = () => {
         </div>
         <div className="text-light charity">
             All donations will benefit the non profit organisation Ciré
-            {" "}<a href="https://www.cire.be/" target="_blank"><svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-link text-warning" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            {" "}<a href="https://www.cire.be/" target="_blank" rel="noreferrer"><svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-link text-warning" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
               <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
             </svg></a>
@@ -148,7 +117,7 @@ const Root = () => {
 
           <br/>
           <div style={{textAlign: "center", fontFamily: "pool_names"}}>
-            <a href="https://www.ulb.be/fr/l-ulb-en-bref/la-saint-verhaegen-2021" target="_blank">
+            <a href="https://www.ulb.be/fr/l-ulb-en-bref/la-saint-verhaegen-2021" target="_blank" rel="noreferrer">
               <button className="btn btn-lg btn-warning">
                 En savoir plus sur la St-V
               </button>
@@ -162,18 +131,18 @@ const Root = () => {
               Au programme:
             </b>
           </p>
-          <p>
+          <div>
             <p>Lundi 15 novembre - Pre-TD social CARé (event à venir)</p>
 
             <p>Mardi 16 novembre à 18h00 - Soirée solidaire CKO et ISEP
-            {' '}<a href="https://fb.me/e/2JzMuuv5g" target="_blank">
+            {' '}<a href="https://fb.me/e/2JzMuuv5g" target="_blank" rel="noreferrer">
               <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-link text-warning" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
                 <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
               </svg>
             </a></p>
             <p>Mardi 16 novembre à 18h30 - Pré-TD Social AGRO
-            {' '}<a href="https://facebook.com/events/s/pre-tde-social-avec-lagro/417065763423846/" target="_blank">
+            {' '}<a href="https://facebook.com/events/s/pre-tde-social-avec-lagro/417065763423846/" target="_blank" rel="noreferrer">
               <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-link text-warning" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
                 <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
@@ -181,7 +150,7 @@ const Root = () => {
             </a></p>
 
             <p>Mardi 16 novembre à 19h30 - Pre-TD social ACE-CPL
-            {' '}<a href="https://www.facebook.com/events/594119935374435" target="_blank">
+            {' '}<a href="https://www.facebook.com/events/594119935374435" target="_blank" rel="noreferrer">
               <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-link text-warning" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
                 <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
@@ -191,7 +160,7 @@ const Root = () => {
             <p>Mardi 16 novembre - Atelier Fresque du climat avec le Cercle Polytechnique (event à venir)</p>
 
             <p>Mercredi 17 novembre à 15h00 - Conférence “libre de détruire mais pas d’accueillir” CPS-CPL-ACE
-            {' '}<a href="https://www.facebook.com/events/407403431049689" target="_blank">
+            {' '}<a href="https://www.facebook.com/events/407403431049689" target="_blank" rel="noreferrer">
               <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-link text-warning" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
                 <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
@@ -202,14 +171,14 @@ const Root = () => {
 
             <p>Mercredi 17 novembre - Pré-TD Social au Cercle des étudiants en Philosophie et Sciences sociales - CPS (event à venir)</p>
 
-            <p>Jeudi 18 novembre à 18h30 - «Conférence Théodore Verhaegen» de l’ULB à la Salle Dupreel {' '}<a href="https://bit.ly/3Hiird6" target="_blank">
+            <p>Jeudi 18 novembre à 18h30 - «Conférence Théodore Verhaegen» de l’ULB à la Salle Dupreel {' '}<a href="https://bit.ly/3Hiird6" target="_blank" rel="noreferrer">
               <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-link text-warning" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
                 <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
               </svg>
             </a></p>
 
-            <p>Vendredi 19 novembre de 8h à 14h - Commémorations et discours {' '}<a href="https://www.ulb.be/fr/l-ulb-en-bref/la-saint-verhaegen-2021" target="_blank">
+            <p>Vendredi 19 novembre de 8h à 14h - Commémorations et discours {' '}<a href="https://www.ulb.be/fr/l-ulb-en-bref/la-saint-verhaegen-2021" target="_blank" rel="noreferrer">
               <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-link text-warning" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
                 <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
@@ -219,25 +188,25 @@ const Root = () => {
             <p>Lundi 22 novembre à 19h00 - Conférence AIC-ACE-Librex : COP26 (event à venir)</p>
 
             <p>Jeudi 24 novembre de 19h à 22h - LIBREX : Nourrir l'Humanité - Pièce de théâtre à l'ULB
-            {' '}<a href="https://fb.me/e/1egUOQdE1" target="_blank">
+            {' '}<a href="https://fb.me/e/1egUOQdE1" target="_blank" rel="noreferrer">
               <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-link text-warning" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
                 <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
               </svg>
             </a></p>
+          </div>
 
-
-<p><b>Le 19 novembre 2021</b></p>
+          <p><b>Le 19 novembre 2021</b></p>
 
   <div className="row align-items-end">
     <div className="col-sm-6 col-md-4 col-lg-3">
-      <a target="_blank" href={"https://www.facebook.com/events/210864651121823"} data-toggle="tooltip" data-placement="top" data-html="true">
+      <a target="_blank" rel="noreferrer" href={"https://www.facebook.com/events/210864651121823"} data-toggle="tooltip" data-placement="top" data-html="true">
         <img className="card-img-top" src={process.env.PUBLIC_URL+"/logos/cd.png"} />
       </a>
       <div className="card-body">
         <div className="row">
           <div className="text-nowrap" style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
-            <a target="_blank" href="https://www.facebook.com/events/210864651121823">
+            <a target="_blank" rel="noreferrer" href="https://www.facebook.com/events/210864651121823">
               <span className="card-title text-light">St-V DROIT</span>
             </a>
           </div>
@@ -246,13 +215,13 @@ const Root = () => {
     </div>
 
     <div className="col-sm-6 col-md-4 col-lg-3">
-      <a target="_blank" href={"https://facebook.com/events/s/saint-verhaegen-avec-cephafk/476874310529084/"} data-toggle="tooltip" data-placement="top" data-html="true">
+      <a target="_blank" rel="noreferrer" href={"https://facebook.com/events/s/saint-verhaegen-avec-cephafk/476874310529084/"} data-toggle="tooltip" data-placement="top" data-html="true">
         <img className="card-img-top" src={process.env.PUBLIC_URL+"/logos/cepha.png"} />
       </a>
       <div className="card-body">
         <div className="row">
           <div className="text-nowrap">
-            <a target="_blank" href="https://facebook.com/events/s/saint-verhaegen-avec-cephafk/476874310529084/">
+            <a target="_blank" rel="noreferrer" href="https://facebook.com/events/s/saint-verhaegen-avec-cephafk/476874310529084/">
               <span className="card-title text-light">St-V Pharma</span>
             </a>
           </div>
@@ -261,13 +230,13 @@ const Root = () => {
     </div>
 
     <div className="col-sm-6 col-md-4 col-lg-3">
-      <a target="_blank" href={"https://fb.me/e/2JWIXib95"} data-toggle="tooltip" data-placement="top" data-html="true">
+      <a target="_blank" rel="noreferrer" href={"https://fb.me/e/2JWIXib95"} data-toggle="tooltip" data-placement="top" data-html="true">
         <img className="card-img-top" src={process.env.PUBLIC_URL+"/logos/care.png"} />
       </a>
       <div className="card-body">
         <div className="row">
           <div className="text-nowrap">
-            <a target="_blank" href="https://fb.me/e/2JWIXib95">
+            <a target="_blank" rel="noreferrer" href="https://fb.me/e/2JWIXib95">
               <span className="card-title text-light">St-V CARé</span>
             </a>
           </div>
@@ -276,13 +245,13 @@ const Root = () => {
     </div>
 
     <div className="col-sm-6 col-md-4 col-lg-3">
-      <a target="_blank" href={"https://fb.me/e/1cw3aLAQW"} data-toggle="tooltip" data-placement="top" data-html="true">
+      <a target="_blank" rel="noreferrer" href={"https://fb.me/e/1cw3aLAQW"} data-toggle="tooltip" data-placement="top" data-html="true">
         <img className="card-img-top" src={process.env.PUBLIC_URL+"/logos/regio.png"} />
       </a>
       <div className="card-body">
         <div className="row">
           <div className="text-nowrap">
-            <a target="_blank" href="https://fb.me/e/1cw3aLAQW">
+            <a target="_blank" rel="noreferrer" href="https://fb.me/e/1cw3aLAQW">
               <span className="card-title text-light">St-V Régios</span>
             </a>
           </div>
@@ -291,13 +260,13 @@ const Root = () => {
     </div>
 
     <div className="col-sm-6 col-md-4 col-lg-3">
-      <a target="_blank" href={"https://facebook.com/events/s/la-saint-v-avec-le-cgeo-et-le-/1051146195639404/"} data-toggle="tooltip" data-placement="top" data-html="true">
+      <a target="_blank" rel="noreferrer" href={"https://facebook.com/events/s/la-saint-v-avec-le-cgeo-et-le-/1051146195639404/"} data-toggle="tooltip" data-placement="top" data-html="true">
         <img className="card-img-top" src={process.env.PUBLIC_URL+"/logos/cicgeo.png"} />
       </a>
       <div className="card-body">
         <div className="row">
           <div className="text-nowrap">
-            <a target="_blank" href="https://facebook.com/events/s/la-saint-v-avec-le-cgeo-et-le-/1051146195639404/">
+            <a target="_blank" rel="noreferrer" href="https://facebook.com/events/s/la-saint-v-avec-le-cgeo-et-le-/1051146195639404/">
               <span className="card-title text-light">St-V CI-CGéo</span>
             </a>
           </div>
@@ -306,13 +275,13 @@ const Root = () => {
     </div>
 
     <div className="col-sm-6 col-md-4 col-lg-3">
-      <a target="_blank" href={"https://facebook.com/events/s/la-saint-v-avec-le-cds/278502500949644/"} data-toggle="tooltip" data-placement="top" data-html="true">
+      <a target="_blank" rel="noreferrer" href={"https://facebook.com/events/s/la-saint-v-avec-le-cds/278502500949644/"} data-toggle="tooltip" data-placement="top" data-html="true">
         <img className="card-img-top" src={process.env.PUBLIC_URL+"/logos/cds.png"} />
       </a>
       <div className="card-body">
         <div className="row">
           <div className="text-nowrap">
-            <a target="_blank" href="https://facebook.com/events/s/la-saint-v-avec-le-cds/278502500949644/">
+            <a target="_blank" rel="noreferrer" href="https://facebook.com/events/s/la-saint-v-avec-le-cds/278502500949644/">
               <span className="card-title text-light">St-V Cds</span>
             </a>
           </div>
@@ -321,13 +290,13 @@ const Root = () => {
     </div>
 
     <div className="col-sm-6 col-md-4 col-lg-3">
-      <a target="_blank" href={"https://www.facebook.com/events/s/saint-verhaegen-2021-avec-le-c/1058495121585041/"} data-toggle="tooltip" data-placement="top" data-html="true">
+      <a target="_blank" rel="noreferrer" href={"https://www.facebook.com/events/s/saint-verhaegen-2021-avec-le-c/1058495121585041/"} data-toggle="tooltip" data-placement="top" data-html="true">
         <img className="card-img-top" src={process.env.PUBLIC_URL+"/logos/cig.png"} />
       </a>
       <div className="card-body">
         <div className="row">
           <div className="text-nowrap">
-            <a target="_blank" href="https://www.facebook.com/events/s/saint-verhaegen-2021-avec-le-c/1058495121585041/">
+            <a target="_blank" rel="noreferrer" href="https://www.facebook.com/events/s/saint-verhaegen-2021-avec-le-c/1058495121585041/">
               <span className="card-title text-light">St-V CIG</span>
             </a>
           </div>
@@ -336,13 +305,13 @@ const Root = () => {
     </div>
 
     <div className="col-sm-6 col-md-4 col-lg-3">
-      <a target="_blank" href={"https://fb.me/e/1g2S5qXYR"} data-toggle="tooltip" data-placement="top" data-html="true">
+      <a target="_blank" rel="noreferrer" href={"https://fb.me/e/1g2S5qXYR"} data-toggle="tooltip" data-placement="top" data-html="true">
         <img className="card-img-top" src={process.env.PUBLIC_URL+"/logos/guildes.png"} />
       </a>
       <div className="card-body">
         <div className="row">
           <div className="text-nowrap">
-            <a target="_blank" href="https://fb.me/e/1g2S5qXYR">
+            <a target="_blank" rel="noreferrer" href="https://fb.me/e/1g2S5qXYR">
               <span className="card-title text-light">St-V Guildes</span>
             </a>
           </div>
@@ -351,13 +320,13 @@ const Root = () => {
     </div>
 
     <div className="col-sm-6 col-md-4 col-lg-3">
-      <a target="_blank" href="https://www.facebook.com/events/199564928993003/" data-toggle="tooltip" data-placement="top" data-html="true">
+      <a target="_blank" rel="noreferrer" href="https://www.facebook.com/events/199564928993003/" data-toggle="tooltip" data-placement="top" data-html="true">
         <img className="card-img-top" src={process.env.PUBLIC_URL+"/logos/cp.png"} />
       </a>
       <div className="card-body">
         <div className="row">
           <div className="text-nowrap">
-            <a target="_blank" href="https://www.facebook.com/events/199564928993003/">
+            <a target="_blank" rel="noreferrer" href="https://www.facebook.com/events/199564928993003/">
               <span className="card-title text-light">St-V CP</span>
             </a>
           </div>
@@ -366,13 +335,13 @@ const Root = () => {
     </div>
 
     <div className="col-sm-6 col-md-4 col-lg-3">
-      <a target="_blank" href="https://www.facebook.com/events/277580404147567" data-toggle="tooltip" data-placement="top" data-html="true">
+      <a target="_blank" rel="noreferrer" href="https://www.facebook.com/events/277580404147567" data-toggle="tooltip" data-placement="top" data-html="true">
         <img className="card-img-top" src={process.env.PUBLIC_URL+"/logos/cps.png"} />
       </a>
       <div className="card-body">
         <div className="row">
           <div className="text-nowrap">
-            <a target="_blank" href="https://www.facebook.com/events/277580404147567">
+            <a target="_blank" rel="noreferrer" href="https://www.facebook.com/events/277580404147567">
               <span className="card-title text-light">St-V CPS</span>
             </a>
           </div>
@@ -381,13 +350,13 @@ const Root = () => {
     </div>
 
     <div className="col-sm-6 col-md-4 col-lg-3">
-      <a target="_blank" href="https://www.facebook.com/events/402568628195717" data-toggle="tooltip" data-placement="top" data-html="true">
+      <a target="_blank" rel="noreferrer" href="https://www.facebook.com/events/402568628195717" data-toggle="tooltip" data-placement="top" data-html="true">
         <img className="card-img-top" src={process.env.PUBLIC_URL+"/logos/cs.png"} />
       </a>
       <div className="card-body">
         <div className="row">
           <div className="text-nowrap">
-            <a target="_blank" href="https://www.facebook.com/events/402568628195717">
+            <a target="_blank" rel="noreferrer" href="https://www.facebook.com/events/402568628195717">
               <span className="card-title text-light">St-V CS</span>
             </a>
           </div>
@@ -396,13 +365,13 @@ const Root = () => {
     </div>
 
     <div className="col-sm-6 col-md-4 col-lg-3">
-      <a target="_blank" href="https://www.facebook.com/events/683177612660035" data-toggle="tooltip" data-placement="top" data-html="true">
+      <a target="_blank" rel="noreferrer" href="https://www.facebook.com/events/683177612660035" data-toggle="tooltip" data-placement="top" data-html="true">
         <img className="card-img-top" src={process.env.PUBLIC_URL+"/logos/isep.png"} />
       </a>
       <div className="card-body">
         <div className="row">
           <div className="text-nowrap">
-            <a target="_blank" href="https://www.facebook.com/events/683177612660035">
+            <a target="_blank" rel="noreferrer" href="https://www.facebook.com/events/683177612660035">
               <span className="card-title text-light">St-V ISEP</span>
             </a>
           </div>
@@ -412,7 +381,6 @@ const Root = () => {
 
   </div>
 
-          </p>
         </div>
       </div>
     </div>

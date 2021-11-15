@@ -1,6 +1,7 @@
 import schedule from './schedule.json';
 
 export default {
+  stripe: '',
   pool: {
     default: "team_organisateur",
   },

@@ -23,6 +23,7 @@ class Modal extends React.Component {
 
   render() {
     const { onSuccess, title } = this.props;
+    const buttonText = this.props.buttonText || "Continue"
     return (
       <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" ref={modal=> this.modal = modal}>
         <div className="modal-dialog" role="document">
@@ -37,7 +38,7 @@ class Modal extends React.Component {
               { this.props.children }
             </div>
             <div className="modal-footer">
-              <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={onSuccess}>Continue</button>
+              <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={onSuccess}>{buttonText}</button>
             </div>
           </div>
         </div>

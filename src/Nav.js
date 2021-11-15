@@ -1,8 +1,11 @@
 import { Link, useLocation } from 'react-router-dom';
 import config from './config';
+import useDonations from './DonationContext';
 
 const Nav = () => {
   const location = useLocation();
+  let {donations} = useDonations();
+  console.log(donations)
   const navItemClass = url => {
     return "nav-item"+(url===location.pathname && " active")
   }
@@ -32,12 +35,17 @@ const Nav = () => {
             </li>
           </ul>
           <ul className="navbar-nav navbar-right">
-            <li className="nav-item">
-              <span className="nav-link text-warning text-center">
-                Dernière édition 18 193€
-              </span>
-            </li>
-          </ul>
+          <li className="nav-item">
+            <Link to="/donate" className="btn text-dark btn-warning font-weight-bold">
+              Donate!
+            </Link>
+          </li>
+          <li className="nav-item">
+            <span className="nav-link text-warning text-center">
+              Total {donations.toFixed(2)}€
+            </span>
+          </li>
+        </ul>
 
         </div>
       </nav>

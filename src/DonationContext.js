@@ -4,29 +4,22 @@ const DonationContext = createContext({});
 
 export const DonationProvider = props => {
   const socket = useRef(null);
-  const [donations, setDonations] = useState({});
-  const [lastDonation, setLastDonation] = useState({});
+  const [lastDonation, setLastDonation] = useState(0);
+  const [donations, setDonations] = useState(0);
+  console.log(donations)
 
   useEffect(() => {
-    socket.current = window.io(process.env.REACT_APP_API_URL+"/donation", {
-      path:'/api/socket.io'
-    });
+    socket.current = window.io(process.env.REACT_APP_API_URL+"/donation", {});
     socket.current.on('donations', res => {
-      let curr_donations = res.reduce((acc, {pool, total}) => {
-        acc[pool] = total
-        return acc
-      }, {})
-      setDonations(curr_donations)
+      console.log('ok')
+      setDonations(res)
     })
   }, []);
 
   useEffect(() => {
-    socket.current.on('donation', ({pool, amount}) => {
-      setLastDonation({pool, amount})
-      setDonations({
-        ...donations,
-        [pool]: (donations[pool] || 0)+parseFloat(amount)
-      })
+    socket.current.on('donation', amount => {
+      setLastDonation(amount)
+      setDonations(donations+parseFloat(amount))
     })
   }, [donations])
 
