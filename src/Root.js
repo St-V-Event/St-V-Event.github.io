@@ -138,14 +138,14 @@ const Root = () => {
           <div>
             <p>Lundi 15 novembre - Pre-TD social CARé</p>
 
-            <p>Mardi 16 novembre à 18h00 - Soirée solidaire CKO et ISEP
+            <p>Mardi 16 novembre de 18h00 à 23h30 - Soirée solidaire CKO et ISEP
             {' '}<a href="https://fb.me/e/2JzMuuv5g" target="_blank">
               <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-link text-warning" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
                 <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
               </svg>
             </a></p>
-            <p>Mardi 16 novembre à 18h30 - Pré-TD Social AGRO
+            <p>Mardi 16 novembre de 18h30 à 23h30 - Pré-TD Social AGRO
             {' '}<a href="https://facebook.com/events/s/pre-tde-social-avec-lagro/417065763423846/" target="_blank">
               <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-link text-warning" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
@@ -161,7 +161,7 @@ const Root = () => {
               </svg>
             </a></p>
 
-            <p>Mardi 16 novembre - Atelier Fresque du climat avec le Cercle Polytechnique
+            <p>Mardi 16 novembre de 18h à 21h - Atelier Fresque du climat @ La Turbean
             {' '}<a href="https://fb.me/e/1lfxily6w" target="_blank">
               <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-link text-warning" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
@@ -169,7 +169,7 @@ const Root = () => {
               </svg>
             </a></p>
 
-            <p>Mardi 16 novembre - Pré-TD Bagarre La Liégeoise
+            <p>Mardi 16 novembre à 19h30 - Pré-TD Bagarre La Liégeoise
             {' '}<a href="https://www.facebook.com/events/679129103075247" target="_blank">
               <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-link text-warning" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
@@ -187,7 +187,7 @@ const Root = () => {
               </svg>
             </a></p>
 
-            <p>Mercedi 17 novembre - Aprèm sociale au CdS
+            <p>Mercedi 17 novembre de 10h à 18h30 - Journée Sociale crêpes et chocolat chaud au CdS
             {' '}<a href="https://www.facebook.com/events/437668714394325" target="_blank">
               <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-link text-warning" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
@@ -195,7 +195,7 @@ const Root = () => {
               </svg>
             </a></p>
 
-            <p>Mercedi 17 novembre - Aprèm Kriek et Croques et pré-TD Social du CD
+            <p>Mercedi 17 novembre de 12h à 16h - Aprèm Kriek et Croques et pré-TD Social du CD
             {' '}<a href="https://www.facebook.com/events/306430677780671" target="_blank">
               <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-link text-warning" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
@@ -203,7 +203,7 @@ const Root = () => {
               </svg>
             </a></p>
 
-            <p>Mercredi 17 novembre - Pré-TD Social au CPS
+            <p>Mercredi 17 novembre de 20h30 à 23h45 - Pré-TD Social au CPS
             {' '}<a href="https://facebook.com/events/s/pre-td-solidaire-bienvenue-a-l/297000535638079/" target="_blank">
               <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-link text-warning" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
@@ -211,7 +211,7 @@ const Root = () => {
               </svg>
             </a></p>
 
-            <p>Mercredi 17 novembre - Pré-TD Terroir de Bruxelles du CRom
+            <p>Mercredi 17 novembre de 19h à 23h30 - Pré-TD Terroir de Bruxelles du CRom
             {' '}<a href="https://fb.me/e/2K8IsbfUy" target="_blank">
               <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-link text-warning" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
@@ -233,7 +233,12 @@ const Root = () => {
               </svg>
             </a></p>
 
-            <p>Lundi 22 novembre à 19h00 - Conférence AIC-ACE-Librex : COP26 (event à venir)</p>
+            <p>Lundi 22 novembre à 20h00 - Conférence AIC-ACE-Librex : COP26 {' '}<a href="https://www.facebook.com/events/1504903219874315/" target="_blank">
+              <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-link text-warning" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+                <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+              </svg>
+            </a></p>
 
             <p>Lundi 22 novembre Live solidaire du CP au Foyer Culturel (event à venir)</p>
 
