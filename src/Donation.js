@@ -171,7 +171,7 @@ const Donate = props => {
         </div>
       </div>
       <div className="form-row">
-        <div className="col-lg-7 col-md col-sm">
+        <div className="col-lg-6 col-md-12 col-sm-12">
           <div className="form-group" style={{textAlign: "justify"}}>
             { donationPreset.map(value => (
               <span key={value}>
@@ -182,6 +182,8 @@ const Donate = props => {
               </span>
             ))}
           </div>
+        </div>
+        <div className="col-lg-6 col-md-6 col-sm-12">
           <div className="form-group" data-toggle="tooltip" data-placement="left" data-html="true" title="Attention aux frais</br>de transaction stripe">
             <div className="input-group">
               <div className="input-group-prepend">
@@ -200,9 +202,6 @@ const Donate = props => {
               </div>
             </div>
           </div>
-        </div>
-        <div className="col-lg-5 col-md col-sm">
-
         </div>
       </div>
       <div>
