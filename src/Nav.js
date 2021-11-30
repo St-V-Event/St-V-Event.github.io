@@ -34,17 +34,12 @@ const Nav = () => {
             </li>
           </ul>
           <ul className="navbar-nav navbar-right">
-          <li className="nav-item">
-            <Link to="/donate" className="btn text-dark btn-warning font-weight-bold">
-              Donate!
-            </Link>
-          </li>
-          <li className="nav-item">
-            <span className="nav-link text-warning text-center">
-              Total {donations.toFixed(2)}€
-            </span>
-          </li>
-        </ul>
+            <li className="nav-item">
+              <span className="nav-link text-warning text-center">
+                Récolte 2021 : 163€
+              </span>
+            </li>
+          </ul>
 
         </div>
       </nav>
